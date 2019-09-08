@@ -6,3 +6,10 @@
  * 博客: https://www.phpst.cn
  */
 package queue
+type queue interface {
+	getSize()
+    isEmpty()
+    enqueue(e int)
+    dequeue()
+    getFront()
+}

@@ -6,3 +6,8 @@
  * 博客: https://www.phpst.cn
  */
 package stack
+getSize()
+isEmpty()
+push(e int)
+pop()
+peek()
