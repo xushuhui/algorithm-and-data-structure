@@ -12,7 +12,7 @@ type Array struct {
 	size int
 }
 
-func (this *Array) Constructor(capacity int) *Array {
+func Constructor(capacity int) *Array {
 	return &Array{
 		data: make([]interface{}, capacity),
 	}
@@ -27,7 +27,7 @@ func (this *Array) IsEmpty() bool {
 func (this *Array) GetCapacity() int {
 	return len(this.data)
 }
-func (this *Array) Add(index, e int) {
+func (this *Array) Add(index int, e interface{}) {
 	if index < 0 || index > this.size {
 		panic("index is illegal")
 	}
@@ -38,10 +38,10 @@ func (this *Array) Add(index, e int) {
 	this.data[index] = e
 	this.size++
 }
-func (this *Array) AddLast(e int) {
+func (this *Array) AddLast(e interface{}) {
 	this.Add(this.size, e)
 }
-func (this *Array) AddFirst(e int) {
+func (this *Array) AddFirst(e interface{}) {
 	this.Add(0, e)
 }
 func (this *Array) Get(index int) interface{} {
@@ -58,7 +58,7 @@ func (this *Array) GetLast() interface{} {
 }
 
 //修改index索引位置的元素为e
-func (this *Array) Set(index, e int) {
+func (this *Array) Set(index int, e interface{}) {
 	if index < 0 || index > this.size {
 		panic("index is illegal")
 	}
@@ -66,7 +66,7 @@ func (this *Array) Set(index, e int) {
 }
 
 //查找数组中是否有元素e O(n)
-func (this *Array) Contains(e int) bool {
+func (this *Array) Contains(e interface{}) bool {
 	for i := 0; i < this.size; i++ {
 		if this.data[i] == e {
 			return true
@@ -76,7 +76,7 @@ func (this *Array) Contains(e int) bool {
 }
 
 //查找数组中元素e所在的索引，如果不存在元素e，则返回-1 O(n)
-func (this *Array) Find(e int) int {
+func (this *Array) Find(e interface{}) int {
 	for i := 0; i < this.size; i++ {
 		if this.data[i] == e {
 			return i
@@ -102,17 +102,17 @@ func (this *Array) Remove(index int) interface{} {
 }
 
 // 从数组中删除第一个元素, 返回删除的元素
-func (this *Array) RemoveFirst() {
-	this.Remove(0)
+func (this *Array) RemoveFirst() interface{} {
+	return this.Remove(0)
 }
 
 // 从数组中删除最后一个元素, 返回删除的元素
-func (this *Array) RemovLast() {
-	this.Remove(this.size - 1)
+func (this *Array) RemovLast() interface{} {
+	return this.Remove(this.size - 1)
 }
 
 // 从数组中删除元素e
-func (this *Array) RemoveElement(e int) {
+func (this *Array) RemoveElement(e interface{}) {
 	index := this.Find(e)
 	if index != -1 {
 		this.Remove(index)

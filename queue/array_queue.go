@@ -7,8 +7,10 @@
  */
 package queue
 
+import "data-structures/array"
+
 type ArrayQueue struct {
-	array *Array
+	array *array.Array
 }
 
 func (this *ArrayQueue) GetSize() {

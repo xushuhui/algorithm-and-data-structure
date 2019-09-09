@@ -6,8 +6,25 @@
  * 博客: https://www.phpst.cn
  */
 package stack
-getSize()
-isEmpty()
-push(e int)
-pop()
-peek()
+
+import "data-structures/array"
+
+type LinkedListStack struct {
+	array *array.Array
+}
+
+func (this *LinkedListStack) GetSize() {
+
+}
+func (this *LinkedListStack) IsEmpty() {
+
+}
+func (this *LinkedListStack) Push(e int) {
+
+}
+func (this *LinkedListStack) Pop() {
+
+}
+func (this *LinkedListStack) Peek() {
+
+}

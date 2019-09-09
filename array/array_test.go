@@ -7,7 +7,9 @@
  */
 package array
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestArray(t *testing.T) {
 	arr := Constructor(20)
@@ -15,7 +17,9 @@ func TestArray(t *testing.T) {
 	for i := 0; i < 10; i++ {
 		arr.AddLast(i)
 	}
+	t.Log(arr.data)
+	ret := arr.RemovLast()
+	t.Log(ret)
 	t.Log(arr)
-	arr.RemovLast()
-	t.Log(arr)
+
 }

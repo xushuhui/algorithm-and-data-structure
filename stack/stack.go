@@ -6,10 +6,11 @@
  * 博客: https://www.phpst.cn
  */
 package stack
-type stack interface {
-	 getSize()
-     isEmpty()
-     push(e int)
-     pop()
-     peek()
+
+type Stack interface {
+	GetSize()
+	IsEmpty()
+	Push(e int)
+	Pop()
+	Peek()
 }
