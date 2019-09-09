@@ -5,7 +5,7 @@
  * Email: xushuhui@qq.com
  * 博客: https://www.phpst.cn
  */
-package array
+package queue
 
 type Array struct {
 	data []interface{}

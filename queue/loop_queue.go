@@ -6,18 +6,19 @@
  * 博客: https://www.phpst.cn
  */
 package queue
-func getSize(){
+
+func GetSize() {
 
 }
-   func isEmpty(){
+func IsEmpty() {
 
-   }
-   func enqueue(e int){
+}
+func Enqueue(e int) {
 
-   }
-    func dequeue(){
+}
+func Dequeue() {
 
-	}
-    func getFront(){
-		
-	}
+}
+func GetFront() {
+
+}

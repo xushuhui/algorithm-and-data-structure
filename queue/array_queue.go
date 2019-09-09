@@ -6,18 +6,23 @@
  * 博客: https://www.phpst.cn
  */
 package queue
-func getSize(){
+
+type ArrayQueue struct {
+	array *Array
+}
+
+func (this *ArrayQueue) GetSize() {
 
 }
-   func isEmpty(){
+func (this *ArrayQueue) IsEmpty() {
 
-   }
-   func enqueue(e int){
+}
+func (this *ArrayQueue) Enqueue(e int) {
 
-   }
-    func dequeue(){
+}
+func (this *ArrayQueue) Dequeue() {
 
-	}
-    func getFront(){
-		
-	}
+}
+func (this *ArrayQueue) GetFront() {
+
+}
