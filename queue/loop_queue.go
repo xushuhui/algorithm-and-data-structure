@@ -7,18 +7,30 @@
  */
 package queue
 
-func GetSize() {
+type LoopQueue struct {
+	data  []interface{}
+	front int
+	tail  int
+	size  int
+}
+
+func LoopQueueConstructor(capacity int) *LoopQueue {
+	return &LoopQueue{
+		data: make([]interface{}, capacity+1),
+	}
+}
+func (this *LoopQueue) GetSize() {
 
 }
-func IsEmpty() {
+func (this *LoopQueue) IsEmpty() {
 
 }
-func Enqueue(e int) {
+func (this *LoopQueue) Enqueue(e int) {
 
 }
-func Dequeue() {
+func (this *LoopQueue) Dequeue() {
 
 }
-func GetFront() {
+func (this *LoopQueue) GetFront() {
 
 }

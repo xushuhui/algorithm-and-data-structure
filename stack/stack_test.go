@@ -14,7 +14,6 @@ func TestStack(t *testing.T) {
 
 	for i := 0; i < 5; i++ {
 		st.Push(i)
-
 	}
 	t.Log(st.array)
 	ret := st.Pop()

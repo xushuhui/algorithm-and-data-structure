@@ -13,18 +13,23 @@ type ArrayQueue struct {
 	array *array.Array
 }
 
-func (this *ArrayQueue) GetSize() {
-
+func Constructor(capacity int) *ArrayQueue {
+	return &ArrayQueue{
+		array: array.Constructor(capacity),
+	}
 }
-func (this *ArrayQueue) IsEmpty() {
-
+func (this *ArrayQueue) GetSize() int {
+	return this.array.GetSize()
 }
-func (this *ArrayQueue) Enqueue(e int) {
-
+func (this *ArrayQueue) IsEmpty() bool {
+	return this.array.IsEmpty()
 }
-func (this *ArrayQueue) Dequeue() {
-
+func (this *ArrayQueue) Enqueue(e interface{}) {
+	this.array.AddLast(e)
 }
-func (this *ArrayQueue) GetFront() {
-
+func (this *ArrayQueue) Dequeue() interface{} {
+	return this.array.RemoveFirst()
+}
+func (this *ArrayQueue) GetFront() interface{} {
+	return this.array.GetFirst()
 }

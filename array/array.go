@@ -90,14 +90,15 @@ func (this *Array) Remove(index int) interface{} {
 	if index < 0 || index > this.size {
 		panic("index is illegal")
 	}
+	ret := this.data[index]
 	for i := index + 1; i < this.size; i++ {
 		this.data[i-1] = this.data[i]
 	}
 	//TODO　resize
-	ret := this.data[index]
+
 	this.size--
 	//this.data = append(this.data[:index], this.data[index+1:]...)
-	this.data[index] = nil
+	this.data[this.size] = nil
 	return ret
 }
 
