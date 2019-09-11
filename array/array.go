@@ -7,6 +7,11 @@
  */
 package array
 
+import (
+	"bytes"
+	"fmt"
+)
+
 type Array struct {
 	data []interface{}
 	size int
@@ -31,7 +36,10 @@ func (this *Array) Add(index int, e interface{}) {
 	if index < 0 || index > this.size {
 		panic("index is illegal")
 	}
-	//TODO　resize
+	//resize
+	if this.size == len(this.data) {
+		this.resize(len(this.data) * 2)
+	}
 	for i := this.size - 1; i >= index; i-- {
 		this.data[i+1] = this.data[i]
 	}
@@ -94,8 +102,10 @@ func (this *Array) Remove(index int) interface{} {
 	for i := index + 1; i < this.size; i++ {
 		this.data[i-1] = this.data[i]
 	}
-	//TODO　resize
-
+	//resize
+	if this.size == len(this.data)/4 && len(this.data)/2 != 0 {
+		this.resize(len(this.data))
+	}
 	this.size--
 	//this.data = append(this.data[:index], this.data[index+1:]...)
 	this.data[this.size] = nil
@@ -119,14 +129,29 @@ func (this *Array) RemoveElement(e interface{}) {
 		this.Remove(index)
 	}
 }
+func (this *Array) resize(newCapacity int) {
+	newData := make([]interface{}, newCapacity)
+	for i := 0; i < this.size; i++ {
+		newData[i] = this.data[i]
+	}
+	this.data = newData
 
-//// 将数组空间的容量变成newCapacity大小
-//private function resize($newCapacity)
-//{
-//$newData = (new self($newCapacity))->data;
-//for ($i = 0; $i < $this->size; $i++) {
-//$newData[$i] = $this->data[$i];
-//}
-//$this->data = $newData;
-//$this->capacity = $newCapacity;
-//}
+}
+
+// 重写 Array 的 string 方法
+func (this *Array) String() string {
+	var buffer bytes.Buffer
+
+	buffer.WriteString(fmt.Sprintf("Array: size = %d, capacity = %d\n", this.size, len(this.data)))
+	buffer.WriteString("[")
+	for i := 0; i < this.size; i++ {
+		// fmt.Sprint 将 interface{} 类型转换为字符串
+		buffer.WriteString(fmt.Sprint(this.data[i]))
+		if i != (this.size - 1) {
+			buffer.WriteString(", ")
+		}
+	}
+	buffer.WriteString("]")
+
+	return buffer.String()
+}

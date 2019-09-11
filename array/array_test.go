@@ -17,7 +17,7 @@ func TestArray(t *testing.T) {
 	for i := 0; i < 10; i++ {
 		arr.AddLast(i)
 	}
-	t.Log(arr.data)
+
 	ret := arr.RemovLast()
 	t.Log(ret)
 	t.Log(arr)
