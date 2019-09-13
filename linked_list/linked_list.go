@@ -7,7 +7,10 @@
  */
 package linked_list
 
-import "fmt"
+import (
+	"bytes"
+	"fmt"
+)
 
 type Node struct {
 	e    interface{}
@@ -86,9 +89,35 @@ func (this *LinkedList) GetFirst() {
 func (this *LinkedList) GetLast() {
 	this.Get(this.size)
 }
-func (this *LinkedList) Contains() {
-
+func (this *LinkedList) Contains(e interface{}) bool{
+	cur := this.dummyHead.next
+	for cur != nil{
+		if cur.e == e{
+			return true
+		}
+		cur = cur.next
+	}
+	return false
 }
-func (this *LinkedList) Set() {
-	
+func (this *LinkedList) Set(index int,e interface{}) {
+	if index < 0 || index > this.size {
+		panic("index is illegal")
+	}
+	cur := this.dummyHead.next
+	for i :=0;i<index;i++{
+		cur = cur.next
+	}
+	cur.e = e
+}
+func (this *LinkedList) String() string {
+	buffer := bytes.Buffer{}
+	cur := this.dummyHead.next
+	for cur != nil {
+		buffer.WriteString(fmt.Sprint(cur.e) + "->")
+		cur = cur.next
+	}
+
+	buffer.WriteString("NULL")
+
+	return buffer.String()
 }
