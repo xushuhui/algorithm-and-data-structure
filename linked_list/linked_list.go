@@ -11,7 +11,7 @@ import "fmt"
 
 type Node struct {
 	e    interface{}
-	node *Node
+	next *Node
 }
 
 func (n *Node) String() string {
@@ -19,46 +19,76 @@ func (n *Node) String() string {
 }
 
 type LinkedList struct {
-	head *Node
+	dummyHead *Node
 	size int
 }
-
-func (this *LinkedList) GetSize() {
-
+func LinkedListConstructor() *LinkedList{
+	return &LinkedList{
+		dummyHead: &Node{},
+	}
 }
-func (this *LinkedList) IsEmpty() {
-
+func (this *LinkedList) GetSize() int{
+	return this.size
 }
-func (this *LinkedList) AddFirst() {
-
+func (this *LinkedList) IsEmpty() bool{
+	return this.size==0
 }
-func (this *LinkedList) Add() {
-
+func (this *LinkedList) AddFirst(e interface{}) {
+	this.Add(0,e)
 }
-func (this *LinkedList) AddLast() {
-
+func (this *LinkedList) Add(index int,e interface{}) {
+	if index < 0 || index > this.size {
+		panic("index is illegal")
+	}
+	prev := this.dummyHead
+	for i :=0; i <index;i++{
+		prev = prev.next
+	}
+	prev.next = &Node{e,prev.next}
+	this.size++
 }
-func (this *LinkedList) Remove() {
-
+func (this *LinkedList) AddLast(e interface{}) {
+	this.Add(this.size,e)
+}
+func (this *LinkedList) Remove(index int)interface{} {
+	if index < 0 || index > this.size {
+		panic("index is illegal")
+	}
+	prev := this.dummyHead
+	for i :=0;i<index;i++{
+		prev =prev.next
+	}
+	retNode :=prev.next
+	prev.next = retNode.next
+	retNode.next=nil
+	this.size--
+	return retNode.e
 }
 func (this *LinkedList) RemoveLast() {
-
+	this.Remove(this.size)
 }
 func (this *LinkedList) RemoveFirst() {
-
+	this.Remove(0)
 }
-func (this *LinkedList) Get() {
-
+func (this *LinkedList) Get(index int)interface{} {
+	if index < 0 || index > this.size {
+		panic("index is illegal")
+	}
+	cur :=this.dummyHead.next
+	for i :=0;i<index;i++{
+		cur = cur.next
+	}
+	return cur.e
 }
 func (this *LinkedList) GetFirst() {
-
+	this.Get(0)
 }
 func (this *LinkedList) GetLast() {
-
+	this.Get(this.size)
 }
 func (this *LinkedList) Contains() {
 
 }
 func (this *LinkedList) Set() {
-
+	
 }
