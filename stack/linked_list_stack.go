@@ -7,24 +7,31 @@
  */
 package stack
 
-import "data-structures/array"
+import (
+	"data-structures/linked_list"
+)
 
 type LinkedListStack struct {
-	array *array.Array
+	linkedList *linked_list.LinkedList
 }
 
-func (this *LinkedListStack) GetSize() {
-
+func LinkedListStackConstructor() *LinkedListStack {
+	return &LinkedListStack{
+		linkedList: linked_list.LinkedListConstructor(),
+	}
 }
-func (this *LinkedListStack) IsEmpty() {
-
+func (this *LinkedListStack) GetSize() int {
+	return this.linkedList.GetSize()
+}
+func (this *LinkedListStack) IsEmpty() bool {
+	return this.linkedList.IsEmpty()
 }
 func (this *LinkedListStack) Push(e int) {
-
+	this.linkedList.AddLast(e)
 }
-func (this *LinkedListStack) Pop() {
-
+func (this *LinkedListStack) Pop() interface{} {
+	return this.linkedList.RemoveLast()
 }
-func (this *LinkedListStack) Peek() {
-
+func (this *LinkedListStack) Peek() interface{} {
+	return this.linkedList.GetLast()
 }

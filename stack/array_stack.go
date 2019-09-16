@@ -13,7 +13,7 @@ type ArrayStack struct {
 	array *array.Array
 }
 
-func Constructor(capacity int) *ArrayStack {
+func ArrayStackConstructor(capacity int) *ArrayStack {
 	return &ArrayStack{
 		array: array.Constructor(capacity),
 	}
