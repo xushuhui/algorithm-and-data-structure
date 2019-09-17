@@ -5,6 +5,4 @@
  * Email: xushuhui@qq.com
  * 博客: https://www.phpst.cn
  */
- package map
-
- import "testing"
+package maps

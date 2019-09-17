@@ -137,6 +137,12 @@ func (this *Array) resize(newCapacity int) {
 	this.data = newData
 
 }
+func (this *Array) Swap(i int, j int) {
+	if i < 0 || i >= this.size || j < 0 || j >= this.size {
+		panic("Index is illegal.")
+	}
+	this.data[i], this.data[j] = this.data[j], this.data[i]
+}
 
 // 重写 Array 的 string 方法
 func (this *Array) String() string {
