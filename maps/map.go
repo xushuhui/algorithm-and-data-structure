@@ -6,3 +6,13 @@
  * 博客: https://www.phpst.cn
  */
 package maps
+
+type Map interface {
+	Add(key, value interface{})
+	Contains(key interface{})
+	Get(key interface{})
+	Set(key, value interface{})
+	Remove(key interface{})
+	GetSize()
+	IsEmpty()
+}
