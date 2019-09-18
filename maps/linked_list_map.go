@@ -1,6 +1,9 @@
 package maps
 
-import "fmt"
+import (
+	"bytes"
+	"fmt"
+)
 
 type Node struct {
 	key   interface{}
@@ -68,5 +71,32 @@ func (this *LinkedListMap) Set(key, value interface{}) {
 	node.value = value
 }
 func (this *LinkedListMap) Remove(key interface{}) interface{} {
+	prev := this.dummyHead
+	for prev.next != nil {
+		if prev.next.key == key {
+			break
+		}
+		prev = prev.next
+	}
+	if prev.next != nil {
+		delNode := prev.next
+		prev.next = delNode.next
+		delNode.next = nil
+		this.size--
+		return delNode.value
+	}
+	return nil
+}
 
+func (this *LinkedListMap) String() string {
+	buffer := bytes.Buffer{}
+	cur := this.dummyHead.next
+	for cur != nil {
+		buffer.WriteString(fmt.Sprint(cur.key) + "-" + fmt.Sprint(cur.value) + "->")
+		cur = cur.next
+	}
+
+	buffer.WriteString("NULL")
+
+	return buffer.String()
 }
