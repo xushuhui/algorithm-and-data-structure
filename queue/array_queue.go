@@ -13,7 +13,7 @@ type ArrayQueue struct {
 	array *array.Array
 }
 
-func Constructor(capacity int) *ArrayQueue {
+func ArrayQueueConstructor(capacity int) *ArrayQueue {
 	return &ArrayQueue{
 		array: array.Constructor(capacity),
 	}

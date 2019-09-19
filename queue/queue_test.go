@@ -7,11 +7,13 @@
  */
 package queue
 
-import "testing"
+import (
+	"testing"
+	"time"
+)
 
-func TestQueue(t *testing.T) {
-	q := Constructor(10)
-
+func TestArrayQueue(t *testing.T) {
+	q := ArrayQueueConstructor(10)
 	for i := 0; i < 5; i++ {
 		q.Enqueue(i)
 	}
@@ -20,4 +22,38 @@ func TestQueue(t *testing.T) {
 	t.Log(ret)
 	t.Log(q.GetFront())
 	t.Log(q.array)
+}
+func TestLoopQueue(t *testing.T) {
+	q := LoopQueueConstructor(10)
+	for i := 0; i < 5; i++ {
+		q.Enqueue(i)
+	}
+	t.Log(q.data)
+	t.Log(q.Dequeue())
+	t.Log(q.GetFront())
+	t.Log(q.data)
+}
+func TestCompareQueue(t *testing.T) {
+	n := 100000
+	//s1 := utils.GenerateRandomArray(n, 0, n)
+	lq := LoopQueueConstructor(n)
+	start1 := time.Now()
+	for i := 0; i < n; i++ {
+		lq.Enqueue(i)
+	}
+	for i := 0; i < n; i++ {
+		lq.Dequeue()
+	}
+	t.Log("LoopQueue time spent:", time.Since(start1).Seconds())
+	aq := ArrayQueueConstructor(n)
+	//var s2 = make([]int, n)
+	//copy(s2, s1)
+	start2 := time.Now()
+	for i := 0; i < n; i++ {
+		aq.Enqueue(i)
+	}
+	for i := 0; i < n; i++ {
+		aq.Dequeue()
+	}
+	t.Log("ArrayQueue time spent:", time.Since(start2).Seconds())
 }

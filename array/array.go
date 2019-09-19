@@ -95,20 +95,21 @@ func (this *Array) Find(e interface{}) int {
 
 //从数组中删除index位置的元素, 返回删除的元素
 func (this *Array) Remove(index int) interface{} {
-	if index < 0 || index > this.size {
-		panic("index is illegal")
+	if index < 0 || index >= this.size {
+		panic(fmt.Sprint("%v index is illegal", index))
 	}
 	ret := this.data[index]
 	for i := index + 1; i < this.size; i++ {
 		this.data[i-1] = this.data[i]
 	}
+
+	this.size--
+	this.data[this.size] = nil
 	//resize
 	if this.size == len(this.data)/4 && len(this.data)/2 != 0 {
 		this.resize(len(this.data))
 	}
-	this.size--
-	//this.data = append(this.data[:index], this.data[index+1:]...)
-	this.data[this.size] = nil
+
 	return ret
 }
 
