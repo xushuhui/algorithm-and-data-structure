@@ -74,6 +74,19 @@ func (this *LinkedList) RemoveLast() interface{} {
 func (this *LinkedList) RemoveFirst() interface{} {
 	return this.Remove(0)
 }
+func (this *LinkedList) RemoveElement(e interface{}) {
+	prev := this.dummyHead
+	for prev.next != nil {
+		if prev.next.e == e {
+			delNode := prev.next
+			prev.next = delNode.next
+			delNode.next = nil
+			this.size--
+			break
+		}
+		prev = prev.next
+	}
+}
 func (this *LinkedList) Get(index int) interface{} {
 	if index < 0 || index > this.size {
 		panic("index is illegal")
