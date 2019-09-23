@@ -5,10 +5,4 @@
  * Email: xushuhui@qq.com
  * 博客: https://www.phpst.cn
  */
-package binary_search_tree
-
-import "testing"
-
-func TestBST(t *testing.T) {
-
-}
+package trie

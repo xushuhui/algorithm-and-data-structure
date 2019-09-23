@@ -25,32 +25,32 @@ func (this *BST) IsEmpty() bool {
 	return this.size == 0
 }
 func (this *BST) Add(e interface{}) {
-	this.addNode(this.root, e)
+	this.add(this.root, e)
 }
-func (this *BST) addNode(node *Node, e interface{}) *Node {
+func (this *BST) add(node *Node, e interface{}) *Node {
 	if node == nil {
 		this.size++
 		return generateNode(e)
 	}
 	if utils.Compare(e, node.e) < 0 {
-		node.left = this.addNode(node.left, e)
+		node.left = this.add(node.left, e)
 	}
 	if utils.Compare(e, node.e) > 0 {
-		node.right = this.addNode(node.right, e)
+		node.right = this.add(node.right, e)
 	}
 	return node
 }
 func (this *BST) Contains(e interface{}) {
-	this.containsNode(this.root, e)
+	this.contains(this.root, e)
 }
-func (this *BST) containsNode(node *Node, e interface{}) bool {
+func (this *BST) contains(node *Node, e interface{}) bool {
 	if node == nil {
 		return false
 	}
 	if utils.Compare(e, node.e) < 0 {
-		return this.containsNode(node.left, e)
+		return this.contains(node.left, e)
 	} else if utils.Compare(e, node.e) > 0 {
-		return this.containsNode(node.right, e)
+		return this.contains(node.right, e)
 	}
 	return true
 }
