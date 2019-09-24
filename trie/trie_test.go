@@ -6,3 +6,8 @@
  * 博客: https://www.phpst.cn
  */
 package trie
+
+import "testing"
+func TestTrie(t *testing.T)  {
+	//t.log()
+}

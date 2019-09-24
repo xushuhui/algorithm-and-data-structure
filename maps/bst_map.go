@@ -12,11 +12,12 @@ type BSTMap struct {
 	size int
 }
 
+// BSTMapConstructor
 func BSTMapConstructor() *BSTMap {
 	return &BSTMap{}
 }
-func (this *BSTMap) GetSize() {
-
+func (this *BSTMap) GetSize() int {
+	return this.GetSize()
 }
 func (this *BSTMap) IsEmpty() {
 
