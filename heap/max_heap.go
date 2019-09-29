@@ -16,6 +16,11 @@ type MaxHeap struct {
 	data *array.Array
 }
 
+func MaxHeapConstructor() *MaxHeap {
+	return &MaxHeap{
+		array.Constructor(10),
+	}
+}
 func (this *MaxHeap) GetSize() int {
 	return this.data.GetSize()
 }
@@ -30,10 +35,10 @@ func parent(index int) int {
 	}
 	return (index - 1) / 2
 }
-func (this *MaxHeap) LeftChild(index int) int {
+func leftChild(index int) int {
 	return index*2 + 1
 }
-func (this *MaxHeap) RightChild(index int) int {
+func rightChild(index int) int {
 	return index*2 + 2
 }
 func (this *MaxHeap) Add(e interface{}) {
@@ -46,11 +51,31 @@ func (this *MaxHeap) FindMax() interface{} {
 	}
 	return this.data.Get(0)
 }
-func (this *MaxHeap) ExtractMax() {
-
+func (this *MaxHeap) ExtractMax() interface{} {
+	ret := this.FindMax()
+	this.data.Swap(0, this.data.GetSize()-1)
+	this.data.RemovLast()
+	this.siftDown(0)
+	return ret
 }
-func (this *MaxHeap) Replace() {
-
+func (this *MaxHeap) Replace(e interface{}) interface{} {
+	ret := this.FindMax()
+	this.data.Set(0, e)
+	this.siftDown(0)
+	return ret
+}
+func (this *MaxHeap) siftDown(k int) {
+	for leftChild(k) < this.data.GetSize() {
+		j := leftChild(k)
+		if j+1 < this.data.GetSize() && utils.Compare(this.data.Get(j+1), this.data.Get(j)) > 0 {
+			j ++
+		}
+		if utils.Compare(this.data.Get(k), this.data.Get(j)) >= 0 {
+			break
+		}
+		this.data.Swap(k, j)
+		k = j
+	}
 }
 func (this *MaxHeap) siftUp(k int) {
 	for k > 0 && utils.Compare(this.data.Get(k), this.data.Get(parent(k))) > 0 {
