@@ -7,7 +7,11 @@
  */
 package binary_search_tree
 
-import "data-structures/utils"
+import (
+	"bytes"
+	"data-structures/utils"
+	"fmt"
+)
 
 type Node struct {
 	e     interface{}
@@ -32,7 +36,7 @@ func (this *BST) IsEmpty() bool {
 	return this.size == 0
 }
 func (this *BST) Add(e interface{}) {
-	this.add(this.root, e)
+	this.root = this.add(this.root, e)
 }
 func (this *BST) add(node *Node, e interface{}) *Node {
 	if node == nil {
@@ -60,4 +64,29 @@ func (this *BST) contains(node *Node, e interface{}) bool {
 		return this.contains(node.right, e)
 	}
 	return true
+}
+func (this *BST) String() string {
+	var buffer bytes.Buffer
+	generateBSTSting(this.root, 0, &buffer)
+	return buffer.String()
+}
+
+// 生成以 Node 为根节点，深度为 depth 的描述二叉树的字符串
+func generateBSTSting(n *Node, depth int, buffer *bytes.Buffer) {
+	if n == nil {
+		buffer.WriteString(generateDepthString(depth) + "nil\n")
+		return
+	}
+
+	buffer.WriteString(generateDepthString(depth) + fmt.Sprint(n.e) + "\n")
+	generateBSTSting(n.left, depth+1, buffer)
+	generateBSTSting(n.right, depth+1, buffer)
+}
+
+func generateDepthString(depth int) string {
+	var buffer bytes.Buffer
+	for i := 0; i < depth; i++ {
+		buffer.WriteString("--")
+	}
+	return buffer.String()
 }

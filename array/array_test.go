@@ -18,8 +18,8 @@ func TestArray(t *testing.T) {
 		arr.AddLast(i)
 	}
 
-	ret := arr.RemovLast()
-	t.Log(ret)
+	arr.RemovLast()
+
 	t.Log(arr)
 
 }

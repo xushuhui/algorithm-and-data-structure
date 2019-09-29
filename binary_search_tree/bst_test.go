@@ -10,5 +10,9 @@ package binary_search_tree
 import "testing"
 
 func TestBST(t *testing.T) {
-
+	bst := BSTConstructor()
+	for i := 0; i < 10; i++ {
+		bst.Add(i)
+	}
+	t.Log(bst)
 }

@@ -96,7 +96,7 @@ func (this *Array) Find(e interface{}) int {
 //从数组中删除index位置的元素, 返回删除的元素
 func (this *Array) Remove(index int) interface{} {
 	if index < 0 || index >= this.size {
-		panic(fmt.Sprint("%v index is illegal", index))
+		panic(fmt.Sprint("%i index is illegal", index))
 	}
 	ret := this.data[index]
 	for i := index + 1; i < this.size; i++ {
