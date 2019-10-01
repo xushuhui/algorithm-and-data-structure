@@ -6,3 +6,7 @@
  * 博客: https://www.phpst.cn
  */
  package avl_tree
+ import "testing"
+func TestAVL(t *testing.T )  {
+	
+}
