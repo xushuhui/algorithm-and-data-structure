@@ -6,3 +6,8 @@
  * 博客: https://www.phpst.cn
  */
  package union_find
+
+ import "testing"
+func TestUnionFind(t *testing.T)  {
+	//t.log()
+}

@@ -6,3 +6,8 @@
  * 博客: https://www.phpst.cn
  */
  package red_black_tree
+ 
+import "testing"
+ func TestRBTree(t *testing.T) {
+
+ }

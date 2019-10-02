@@ -6,7 +6,4 @@
  * 博客: https://www.phpst.cn
  */
 package segment_tree
-import "testing"
-func TestSegmentTree(t *testing.T )  {
-	
-}
+
