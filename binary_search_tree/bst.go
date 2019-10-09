@@ -90,3 +90,36 @@ func generateDepthString(depth int) string {
 	}
 	return buffer.String()
 }
+func (this *BST) PreOrder() {
+	preOrder(this.root)
+}
+func preOrder(node *Node) {
+	if node == nil {
+		return
+	}
+	fmt.Println(node.e)
+	preOrder(node.left)
+	preOrder(node.right)
+}
+func (this *BST) InOrder() {
+	inOrder(this.root)
+}
+func inOrder(node *Node) {
+	if node == nil {
+		return
+	}
+	inOrder(node.left)
+	fmt.Println(node.e)
+	inOrder(node.right)
+}
+func (this *BST) PostOrder() {
+	postOrder(this.root)
+}
+func postOrder(node *Node) {
+	if node == nil {
+		return
+	}
+	postOrder(node.left)
+	postOrder(node.right)
+	fmt.Println(node.e)
+}
