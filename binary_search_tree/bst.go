@@ -51,8 +51,8 @@ func (this *BST) add(node *Node, e interface{}) *Node {
 	}
 	return node
 }
-func (this *BST) Contains(e interface{}) {
-	this.contains(this.root, e)
+func (this *BST) Contains(e interface{}) bool {
+	return this.contains(this.root, e)
 }
 func (this *BST) contains(node *Node, e interface{}) bool {
 	if node == nil {
@@ -122,4 +122,113 @@ func postOrder(node *Node) {
 	postOrder(node.left)
 	postOrder(node.right)
 	fmt.Println(node.e)
+}
+func (this *BST) Minimum() interface{} {
+	if this.size == 0 {
+		panic("BST is empty")
+	}
+	return minimum(this.root).e
+}
+func minimum(node *Node) *Node {
+	if node.left == nil {
+		return node
+	}
+	return minimum(node.left)
+}
+func (this *BST) Maximum() interface{} {
+	if this.size == 0 {
+		panic("BST is empty")
+	}
+	return maximum(this.root).e
+}
+func maximum(node *Node) *Node {
+	if node.right == nil {
+		return node
+	}
+	return minimum(node.right)
+}
+
+// 从二分搜索树中删除最小值所在节点, 返回最小值
+func (this *BST) RemoveMin() interface{} {
+	ret := this.Minimum()
+	this.root = this.removeMin(this.root)
+	return ret
+}
+
+// 删除掉以node为根的二分搜索树中的最小节点
+// 返回删除节点后新的二分搜索树的根
+func (this *BST) removeMin(node *Node) *Node {
+	if node.left == nil {
+		rightNode := node.right
+		node.right = nil
+		this.size--
+		return rightNode
+	}
+	node.left = this.removeMin(node.left)
+	return node
+}
+
+// 从二分搜索树中删除最大值所在节点
+func (this *BST) RemoveMax() interface{} {
+	ret := this.Maximum()
+	this.root = this.removeMax(this.root)
+	return ret
+}
+
+// 删除掉以node为根的二分搜索树中的最大节点
+// 返回删除节点后新的二分搜索树的根
+func (this *BST) removeMax(node *Node) *Node {
+	if node.right == nil {
+		leftNode := node.left
+		node.left = nil
+		this.size--
+		return leftNode
+	}
+	node.right = this.removeMax(node.right)
+	return node
+}
+
+// 从二分搜索树中删除元素为e的节点
+func (this *BST) Remove(e interface{}) {
+	this.root = this.remove(this.root, e)
+}
+
+// 删除掉以node为根的二分搜索树中值为e的节点, 递归算法
+// 返回删除节点后新的二分搜索树的根
+func (this *BST) remove(node *Node, e interface{}) *Node {
+	if node == nil {
+		return nil
+	}
+	if utils.Compare(e, node.e) < 0 {
+		node.left = this.remove(node.left, e)
+		return node
+	} else if utils.Compare(e, node.e) > 0 {
+		node.right = this.remove(node.right, e)
+		return node
+	} else {
+		// 待删除节点左子树为空的情况
+		if node.left == nil {
+			rightNode := node.right
+			node.right = nil
+			this.size--
+			return rightNode
+		}
+		// 待删除节点右子树为空的情况
+		if node.right == nil {
+			leftNode := node.left
+			node.left = nil
+			this.size--
+			return leftNode
+		}
+		// 待删除节点左右子树均不为空的情况
+		// 找到比待删除节点大的最小节点, 即待删除节点右子树的最小节点
+		// 用这个节点顶替待删除节点的位置
+		n := minimum(node.right)
+		n.right = this.removeMin(node.right)
+		n.left = node.left
+		node.left = nil
+		node.right = nil
+		return n
+	}
+
 }

@@ -15,4 +15,6 @@ func TestBST(t *testing.T) {
 		bst.Add(i)
 	}
 	t.Log(bst)
+	bst.Remove(9)
+	t.Log(bst)
 }
