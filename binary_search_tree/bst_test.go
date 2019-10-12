@@ -14,5 +14,5 @@ func TestBST(t *testing.T) {
 	for i := 0; i < 10; i++ {
 		bst.Add(i)
 	}
-	bst.LevelOrder()
+	bst.LevelOrder2()
 }

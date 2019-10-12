@@ -9,6 +9,7 @@ package binary_search_tree
 
 import (
 	"bytes"
+	"container/list"
 	"data-structures/queue"
 	"data-structures/stack"
 	"data-structures/utils"
@@ -124,6 +125,22 @@ func (this *BST) LevelOrder() {
 		}
 		if cur.right != nil {
 			q.Enqueue(cur.right)
+		}
+	}
+
+}
+func (this *BST)LevelOrder2()  {
+	l := list.New()
+	l.PushBack(this.root)
+	for l.Len() > 0 {
+		e := l.Back()
+		cur := l.Remove(e).(*Node)
+		fmt.Println(cur)
+		if cur.left != nil {
+			l.PushBack(cur.left)
+		}
+		if cur.right != nil {
+			l.PushBack(cur.right)
 		}
 	}
 }
