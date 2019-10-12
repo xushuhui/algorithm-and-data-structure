@@ -7,11 +7,12 @@
  */
 package heap
 
-import "data-structures/array"
+import "github.com/xushuhui/data-structures/array"
 
 type MinHeap struct {
 	data *array.Array
 }
+
 func (this *MinHeap) GetSize() int {
 	return this.data.GetSize()
 }

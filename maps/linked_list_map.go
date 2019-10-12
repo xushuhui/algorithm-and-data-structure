@@ -22,7 +22,7 @@ type LinkedListMap struct {
 	size      int
 }
 
-func LinkedListMapConstructor() *LinkedListMap {
+func NewLinkedListMap() *LinkedListMap {
 	return &LinkedListMap{
 		dummyHead: &Node{},
 		size:      0,

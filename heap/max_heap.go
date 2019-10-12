@@ -8,15 +8,15 @@
 package heap
 
 import (
-	"data-structures/array"
-	"data-structures/utils"
+	"github.com/xushuhui/data-structures/array"
+	"github.com/xushuhui/data-structures/utils"
 )
 
 type MaxHeap struct {
 	data *array.Array
 }
 
-func MaxHeapConstructor() *MaxHeap {
+func NewMaxHeap() *MaxHeap {
 	return &MaxHeap{
 		array.Constructor(10),
 	}
@@ -68,7 +68,7 @@ func (this *MaxHeap) siftDown(k int) {
 	for leftChild(k) < this.data.GetSize() {
 		j := leftChild(k)
 		if j+1 < this.data.GetSize() && utils.Compare(this.data.Get(j+1), this.data.Get(j)) > 0 {
-			j ++
+			j++
 		}
 		if utils.Compare(this.data.Get(k), this.data.Get(j)) >= 0 {
 			break

@@ -13,7 +13,7 @@ type BSTMap struct {
 }
 
 // BSTMapConstructor
-func BSTMapConstructor() *BSTMap {
+func NewBSTMap() *BSTMap {
 	return &BSTMap{}
 }
 func (this *BSTMap) GetSize() int {

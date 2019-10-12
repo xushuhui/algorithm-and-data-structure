@@ -17,7 +17,7 @@ type Array struct {
 	size int
 }
 
-func Constructor(capacity int) *Array {
+func NewArray(capacity int) *Array {
 	return &Array{
 		data: make([]interface{}, capacity),
 	}

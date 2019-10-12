@@ -7,13 +7,13 @@
  */
 package queue
 
-import "data-structures/array"
+import "github.com/xushuhui/data-structures/array"
 
 type ArrayQueue struct {
 	array *array.Array
 }
 
-func ArrayQueueConstructor(capacity int) *ArrayQueue {
+func NewArrayQueue(capacity int) *ArrayQueue {
 	return &ArrayQueue{
 		array: array.Constructor(capacity),
 	}

@@ -10,7 +10,7 @@ package stack
 import "testing"
 
 func TestStack(t *testing.T) {
-	ast := ArrayStackConstructor(10)
+	ast := NewArrayStack(10)
 
 	for i := 0; i < 5; i++ {
 		ast.Push(i)
@@ -19,7 +19,7 @@ func TestStack(t *testing.T) {
 	t.Log(ast.Pop())
 	t.Log(ast.Peek())
 
-	lst := LinkedListStackConstructor()
+	lst := NewLinkedListStack()
 	for i := 0; i < 5; i++ {
 		lst.Push(i)
 	}

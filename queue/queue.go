@@ -10,7 +10,7 @@ package queue
 type Queue interface {
 	GetSize()
 	IsEmpty()
-	Enqueue(e int)
+	Enqueue(e interface{})
 	Dequeue()
 	GetFront()
 }

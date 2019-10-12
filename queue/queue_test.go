@@ -13,7 +13,7 @@ import (
 )
 
 func TestArrayQueue(t *testing.T) {
-	q := ArrayQueueConstructor(10)
+	q := NewArrayQueue(10)
 	for i := 0; i < 5; i++ {
 		q.Enqueue(i)
 	}
@@ -24,7 +24,7 @@ func TestArrayQueue(t *testing.T) {
 	t.Log(q.array)
 }
 func TestLoopQueue(t *testing.T) {
-	q := LoopQueueConstructor(10)
+	q := NewLoopQueue(10)
 	for i := 0; i < 5; i++ {
 		q.Enqueue(i)
 	}
@@ -36,7 +36,7 @@ func TestLoopQueue(t *testing.T) {
 func TestCompareQueue(t *testing.T) {
 	n := 100000
 	//s1 := utils.GenerateRandomArray(n, 0, n)
-	lq := LoopQueueConstructor(n)
+	lq := NewLoopQueue(n)
 	start1 := time.Now()
 	for i := 0; i < n; i++ {
 		lq.Enqueue(i)
@@ -45,7 +45,7 @@ func TestCompareQueue(t *testing.T) {
 		lq.Dequeue()
 	}
 	t.Log("LoopQueue time spent:", time.Since(start1).Seconds())
-	aq := ArrayQueueConstructor(n)
+	aq := NewArrayQueue(n)
 	//var s2 = make([]int, n)
 	//copy(s2, s1)
 	start2 := time.Now()

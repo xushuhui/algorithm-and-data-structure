@@ -7,49 +7,62 @@
  */
 package segment_tree
 
-func buildSegmentTree(treeIndex,left,right int){
+type SegmentTree struct {
+	tree   interface{}
+	data   []int
+	Merger func()
+}
+
+func NewST() {
 
 }
-func GetSize(){
+func buildSegmentTree(treeIndex, left, right int) {
 
 }
-func Get(index int)int{
-
+func (this *SegmentTree) GetSize() int {
+	return len(this.data)
 }
-func leftChild(index int){
-
-}
-func rightChild(index int){
-	
-}
-func Query(queryL,queryR int){
-
-}
-func query(treeIndex,left,right int){
-
-}
-func Set(index int,e interface{}){
-
-}
-func set(treeIndex,left,right index int,e interface{}){
-
-}
-func (this *Array) String() string {
-	buffer := bytes.Buffer{}
-
-	buffer.WriteString("[")
-	for i := 0; i < len(this.tree); i++ {
-		if this.tree[i] != nil {
-			buffer.WriteString(fmt.Sprint(this.tree[i]))
-		} else {
-			buffer.WriteString("nil")
-		}
-
-		if i != len(this.tree)-1 {
-			buffer.WriteString(", ")
-		}
+func (this *SegmentTree) Get(index int) int {
+	if index < 0 || index >= len(this.data) {
+		panic("index is illegal")
 	}
-	buffer.WriteString("]")
-
-	return buffer.String()
+	return this.data[index]
 }
+func leftChild(index int) int {
+	return 2*index + 1
+}
+func rightChild(index int) int {
+	return 2*index + 2
+}
+func Query(queryL, queryR int) {
+
+}
+func query(treeIndex, left, right int) {
+
+}
+func Set(index int, e interface{}) {
+
+}
+func set(treeIndex, left, right, index int, e interface{}) {
+
+}
+
+//func (this *Array) String() string {
+//	buffer := bytes.Buffer{}
+//
+//	buffer.WriteString("[")
+//	for i := 0; i < len(this.tree); i++ {
+//		if this.tree[i] != nil {
+//			buffer.WriteString(fmt.Sprint(this.tree[i]))
+//		} else {
+//			buffer.WriteString("nil")
+//		}
+//
+//		if i != len(this.tree)-1 {
+//			buffer.WriteString(", ")
+//		}
+//	}
+//	buffer.WriteString("]")
+//
+//	return buffer.String()
+//}

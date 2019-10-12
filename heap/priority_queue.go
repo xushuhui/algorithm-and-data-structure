@@ -7,15 +7,13 @@
  */
 package heap
 
-
-
 type PriorityQueue struct {
 	maxHeap *MaxHeap
 }
 
-func PriorityQueueConstructor()*PriorityQueue  {
+func PriorityQueueConstructor() *PriorityQueue {
 	return &PriorityQueue{
-		maxHeap:MaxHeapConstructor(),
+		maxHeap: NewMaxHeap(),
 	}
 }
 func (q *PriorityQueue) GetSize() int {

@@ -3,17 +3,17 @@ package set
 import "testing"
 
 func TestLinkedListSet(t *testing.T) {
-	//lset := LinkedListSetConstructor()
-	//
-	//for i := 0; i < 10; i++ {
-	//	lset.Add(i)
-	//}
-	//t.Log(lset)
-	//lset.Remove(9)
-	//t.Log(lset)
-	//t.Log(lset.GetSize())
+	lset := NewLinkedListSet()
 
-	bset := BSTSetConstructor()
+	for i := 0; i < 10; i++ {
+		lset.Add(i)
+	}
+	t.Log(lset)
+	lset.Remove(9)
+	t.Log(lset)
+	t.Log(lset.GetSize())
+
+	bset := NewBSTSet()
 	for i := 0; i < 10; i++ {
 		bset.Add(i)
 	}

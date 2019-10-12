@@ -26,7 +26,7 @@ type LinkedList struct {
 	size      int
 }
 
-func LinkedListConstructor() *LinkedList {
+func NewLinkedList() *LinkedList {
 	return &LinkedList{
 		dummyHead: &Node{},
 	}

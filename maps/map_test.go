@@ -13,7 +13,7 @@ func TestBSTMap(t *testing.T) {
 
 }
 func TestLinkedListMap(t *testing.T) {
-	lmap := LinkedListMapConstructor()
+	lmap := NewLinkedListMap()
 	lmap.Add("k", "v")
 	lmap.Add("k1", "v1")
 	t.Log(lmap.Get("k"))

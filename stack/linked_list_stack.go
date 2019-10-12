@@ -8,14 +8,14 @@
 package stack
 
 import (
-	"data-structures/linked_list"
+	"github.com/xushuhui/data-structures/linked_list"
 )
 
 type LinkedListStack struct {
 	linkedList *linked_list.LinkedList
 }
 
-func LinkedListStackConstructor() *LinkedListStack {
+func NewLinkedListStack() *LinkedListStack {
 	return &LinkedListStack{
 		linkedList: linked_list.LinkedListConstructor(),
 	}

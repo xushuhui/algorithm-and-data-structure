@@ -14,8 +14,7 @@ type LoopQueue struct {
 	size  int
 }
 
-func LoopQueueConstructor(capacity int) (l *LoopQueue) {
-
+func NewLoopQueue(capacity int) (l *LoopQueue) {
 	l = &LoopQueue{
 		data: make([]interface{}, capacity+1),
 	}
@@ -43,7 +42,7 @@ func (this *LoopQueue) resize(capacity int) {
 	this.tail = this.size
 
 }
-func (this *LoopQueue) Enqueue(e int) {
+func (this *LoopQueue) Enqueue(e interface{}) {
 
 	if (this.tail+1)%len(this.data) == this.front {
 		this.resize(this.GetCapacity() * 2)

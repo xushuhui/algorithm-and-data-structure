@@ -1,14 +1,14 @@
 package set
 
 import (
-	"data-structures/binary_search_tree"
+	"github.com/xushuhui/data-structures/binary_search_tree"
 )
 
 type BSTSet struct {
 	BST *binary_search_tree.BST
 }
 
-func BSTSetConstructor() *BSTSet {
+func NewBSTSet() *BSTSet {
 	return &BSTSet{
 		BST: binary_search_tree.BSTConstructor(),
 	}

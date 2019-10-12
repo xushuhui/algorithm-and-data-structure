@@ -5,4 +5,26 @@
  * Email: xushuhui@qq.com
  * 博客: https://www.phpst.cn
  */
- package hash_table
+package hash_table
+
+type HashTable struct {
+}
+
+func GetSize() {
+
+}
+func Remove() {
+
+}
+func Add() {
+
+}
+func Contains() {
+
+}
+func Get() {
+
+}
+func hash() {
+
+}

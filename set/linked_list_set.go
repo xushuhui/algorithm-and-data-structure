@@ -1,12 +1,12 @@
 package set
 
-import "data-structures/linked_list"
+import "github.com/xushuhui/data-structures/linked_list"
 
 type LinkedListSet struct {
 	LinkedList *linked_list.LinkedList
 }
 
-func LinkedListSetConstructor() *LinkedListSet {
+func NewLinkedListSet() *LinkedListSet {
 	return &LinkedListSet{
 		LinkedList: linked_list.LinkedListConstructor(),
 	}

@@ -10,10 +10,10 @@ package binary_search_tree
 import (
 	"bytes"
 	"container/list"
-	"data-structures/queue"
-	"data-structures/stack"
-	"data-structures/utils"
 	"fmt"
+	"github.com/xushuhui/data-structures/queue"
+	"github.com/xushuhui/data-structures/stack"
+	"github.com/xushuhui/data-structures/utils"
 )
 
 type Node struct {
@@ -26,7 +26,7 @@ type BST struct {
 	size int
 }
 
-func generateNode(e interface{}) *Node {
+func NewNode(e interface{}) *Node {
 	return &Node{e: e}
 }
 func BSTConstructor() *BST {
@@ -44,7 +44,7 @@ func (this *BST) Add(e interface{}) {
 func (this *BST) add(node *Node, e interface{}) *Node {
 	if node == nil {
 		this.size++
-		return generateNode(e)
+		return NewNode(e)
 	}
 	if utils.Compare(e, node.e) < 0 {
 		node.left = this.add(node.left, e)
@@ -99,7 +99,7 @@ func (this *BST) PreOrderNR() {
 	if this.root == nil {
 		return
 	}
-	stacks := stack.ArrayStackConstructor(20)
+	stacks := stack.NewArrayStack(20)
 	stacks.Push(this.root)
 	for !stacks.IsEmpty() {
 		cur := stacks.Pop().(*Node)
@@ -129,7 +129,7 @@ func (this *BST) LevelOrder() {
 	}
 
 }
-func (this *BST)LevelOrder2()  {
+func (this *BST) LevelOrder2() {
 	l := list.New()
 	l.PushBack(this.root)
 	for l.Len() > 0 {

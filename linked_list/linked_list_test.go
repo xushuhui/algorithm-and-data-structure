@@ -10,7 +10,7 @@ package linked_list
 import "testing"
 
 func TestLinkedList(t *testing.T) {
-	linkedlist := LinkedListConstructor()
+	linkedlist := NewLinkedList()
 	for i := 0; i < 10; i++ {
 		linkedlist.AddFirst(i)
 	}

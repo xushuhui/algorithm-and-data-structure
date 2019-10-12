@@ -8,9 +8,9 @@
 package stack
 
 type Stack interface {
-	GetSize()
-	IsEmpty()
-	Push(e int)
-	Pop()
-	Peek()
+	GetSize() int
+	IsEmpty() bool
+	Push(e interface{})
+	Pop() interface{}
+	Peek() interface{}
 }

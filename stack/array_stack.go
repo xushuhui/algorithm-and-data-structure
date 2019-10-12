@@ -7,13 +7,13 @@
  */
 package stack
 
-import "data-structures/array"
+import "github.com/xushuhui/data-structures/array"
 
 type ArrayStack struct {
 	array *array.Array
 }
 
-func ArrayStackConstructor(capacity int) *ArrayStack {
+func NewArrayStack(capacity int) *ArrayStack {
 	return &ArrayStack{
 		array: array.Constructor(capacity),
 	}
@@ -25,7 +25,7 @@ func (this *ArrayStack) GetSize() int {
 func (this *ArrayStack) IsEmpty() bool {
 	return this.array.IsEmpty()
 }
-func (this *ArrayStack) Push(e int) {
+func (this *ArrayStack) Push(e interface{}) {
 	this.array.AddLast(e)
 }
 func (this *ArrayStack) Pop() interface{} {

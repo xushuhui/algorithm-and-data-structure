@@ -12,7 +12,7 @@ import (
 )
 
 func TestArray(t *testing.T) {
-	arr := Constructor(20)
+	arr := NewArray(20)
 
 	for i := 0; i < 10; i++ {
 		arr.AddLast(i)
