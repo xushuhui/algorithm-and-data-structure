@@ -9,6 +9,8 @@ package binary_search_tree
 
 import (
 	"bytes"
+	"data-structures/queue"
+	"data-structures/stack"
 	"data-structures/utils"
 	"fmt"
 )
@@ -89,6 +91,41 @@ func generateDepthString(depth int) string {
 		buffer.WriteString("--")
 	}
 	return buffer.String()
+}
+
+// 二分搜索树的非递归前序遍历
+func (this *BST) PreOrderNR() {
+	if this.root == nil {
+		return
+	}
+	stacks := stack.ArrayStackConstructor(20)
+	stacks.Push(this.root)
+	for !stacks.IsEmpty() {
+		cur := stacks.Pop().(*Node)
+		fmt.Println(cur.e)
+		if cur.right != nil {
+			stacks.Push(cur.right)
+		}
+		if cur.left != nil {
+			stacks.Push(cur.left)
+		}
+	}
+}
+
+// 二分搜索树的层序遍历
+func (this *BST) LevelOrder() {
+	q := queue.LoopQueueConstructor(20)
+	q.Enqueue(this.root)
+	for !q.IsEmpty() {
+		cur := q.Dequeue().(*Node)
+		fmt.Println(cur)
+		if cur.left != nil {
+			q.Enqueue(cur.left)
+		}
+		if cur.right != nil {
+			q.Enqueue(cur.right)
+		}
+	}
 }
 func (this *BST) PreOrder() {
 	preOrder(this.root)

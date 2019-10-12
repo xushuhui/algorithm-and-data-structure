@@ -14,7 +14,5 @@ func TestBST(t *testing.T) {
 	for i := 0; i < 10; i++ {
 		bst.Add(i)
 	}
-	t.Log(bst)
-	bst.Remove(9)
-	t.Log(bst)
+	bst.LevelOrder()
 }
