@@ -18,7 +18,7 @@ type MaxHeap struct {
 
 func NewMaxHeap() *MaxHeap {
 	return &MaxHeap{
-		array.Constructor(10),
+		array.NewArray(10),
 	}
 }
 func (this *MaxHeap) GetSize() int {

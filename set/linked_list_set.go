@@ -8,7 +8,7 @@ type LinkedListSet struct {
 
 func NewLinkedListSet() *LinkedListSet {
 	return &LinkedListSet{
-		LinkedList: linked_list.LinkedListConstructor(),
+		LinkedList: linked_list.NewLinkedList(),
 	}
 }
 func (this *LinkedListSet) Add(e interface{}) {

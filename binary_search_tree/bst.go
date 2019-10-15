@@ -29,7 +29,7 @@ type BST struct {
 func NewNode(e interface{}) *Node {
 	return &Node{e: e}
 }
-func BSTConstructor() *BST {
+func NewBST() *BST {
 	return &BST{}
 }
 func (this *BST) GetSize() int {
@@ -115,7 +115,7 @@ func (this *BST) PreOrderNR() {
 
 // 二分搜索树的层序遍历
 func (this *BST) LevelOrder() {
-	q := queue.LoopQueueConstructor(20)
+	q := queue.NewLoopQueue(20)
 	q.Enqueue(this.root)
 	for !q.IsEmpty() {
 		cur := q.Dequeue().(*Node)
@@ -199,7 +199,7 @@ func maximum(node *Node) *Node {
 	if node.right == nil {
 		return node
 	}
-	return minimum(node.right)
+	return maximum(node.right)
 }
 
 // 从二分搜索树中删除最小值所在节点, 返回最小值

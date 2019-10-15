@@ -12,19 +12,19 @@ import (
 	"fmt"
 )
 
-type Node struct {
+type LinkedListNode struct {
 	key   interface{}
 	value interface{}
-	next  *Node
+	next  *LinkedListNode
 }
 type LinkedListMap struct {
-	dummyHead *Node
+	dummyHead *LinkedListNode
 	size      int
 }
 
 func NewLinkedListMap() *LinkedListMap {
 	return &LinkedListMap{
-		dummyHead: &Node{},
+		dummyHead: &LinkedListNode{},
 		size:      0,
 	}
 }
@@ -46,7 +46,7 @@ func (this *LinkedListMap) Get(key interface{}) interface{} {
 		return node.value
 	}
 }
-func (this *LinkedListMap) getNode(key interface{}) *Node {
+func (this *LinkedListMap) getNode(key interface{}) *LinkedListNode {
 	cur := this.dummyHead.next
 	for cur != nil {
 		if cur.key == key {
@@ -59,7 +59,7 @@ func (this *LinkedListMap) getNode(key interface{}) *Node {
 func (this *LinkedListMap) Add(key, value interface{}) {
 	node := this.getNode(key)
 	if node == nil {
-		newNode := &Node{
+		newNode := &LinkedListNode{
 			key:   key,
 			value: value,
 			next:  this.dummyHead.next,
