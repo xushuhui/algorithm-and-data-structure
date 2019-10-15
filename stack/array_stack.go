@@ -15,7 +15,7 @@ type ArrayStack struct {
 
 func NewArrayStack(capacity int) *ArrayStack {
 	return &ArrayStack{
-		array: array.Constructor(capacity),
+		array: array.NewArray(capacity),
 	}
 }
 

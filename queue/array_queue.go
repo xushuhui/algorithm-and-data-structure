@@ -15,7 +15,7 @@ type ArrayQueue struct {
 
 func NewArrayQueue(capacity int) *ArrayQueue {
 	return &ArrayQueue{
-		array: array.Constructor(capacity),
+		array: array.NewArray(capacity),
 	}
 }
 func (this *ArrayQueue) GetSize() int {
