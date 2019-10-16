@@ -8,6 +8,9 @@
 package trie
 
 import "testing"
-func TestTrie(t *testing.T)  {
-	//t.log()
+
+func TestTrie(t *testing.T) {
+	tries := NewTrie()
+	tries.Add("bat")
+	t.Log(tries.Contains("ba"))
 }
