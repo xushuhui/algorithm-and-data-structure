@@ -10,10 +10,10 @@ package binary_search_tree
 import (
 	"bytes"
 	"container/list"
+	"data-structures/queue"
+	"data-structures/stack"
+	"data-structures/utils"
 	"fmt"
-	"github.com/xushuhui/data-structures/queue"
-	"github.com/xushuhui/data-structures/stack"
-	"github.com/xushuhui/data-structures/utils"
 )
 
 type Node struct {
@@ -34,6 +34,31 @@ func NewBST() *BST {
 }
 func (this *BST) GetSize() int {
 	return this.size
+}
+
+// 判断该二叉树是否是一棵二分搜索树
+func (this *BST) IsBST() bool {
+	var keys []interface{}
+	inOrderBST(this.root, &keys)
+	for i := 1; i < len(keys); i++ {
+		if utils.Compare(keys[i-1], keys[i]) < 0 {
+			return false
+		}
+	}
+	return true
+}
+func inOrderBST(node *Node, keys *[]interface{}) {
+	if node == nil {
+		return
+	}
+	inOrderBST(node.left, keys)
+	*keys = append(*keys, node.e)
+	inOrderBST(node.right, keys)
+}
+func (this *BST) BSTSlice() []interface{} {
+	var keys []interface{}
+	inOrderBST(this.root, &keys)
+	return keys
 }
 func (this *BST) IsEmpty() bool {
 	return this.size == 0

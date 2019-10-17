@@ -7,7 +7,7 @@
  */
 package heap
 
-import "github.com/xushuhui/data-structures/array"
+import "data-structures/array"
 
 type MinHeap struct {
 	data *array.Array

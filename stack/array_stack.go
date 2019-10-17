@@ -7,7 +7,7 @@
  */
 package stack
 
-import "github.com/xushuhui/data-structures/array"
+import "data-structures/array"
 
 type ArrayStack struct {
 	array *array.Array

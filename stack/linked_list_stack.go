@@ -8,7 +8,7 @@
 package stack
 
 import (
-	"github.com/xushuhui/data-structures/linked_list"
+	"data-structures/linked_list"
 )
 
 type LinkedListStack struct {

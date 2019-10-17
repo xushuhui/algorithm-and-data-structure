@@ -7,7 +7,7 @@
  */
 package queue
 
-import "github.com/xushuhui/data-structures/array"
+import "data-structures/array"
 
 type ArrayQueue struct {
 	array *array.Array

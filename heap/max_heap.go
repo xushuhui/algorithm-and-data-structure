@@ -8,8 +8,8 @@
 package heap
 
 import (
-	"github.com/xushuhui/data-structures/array"
-	"github.com/xushuhui/data-structures/utils"
+	"data-structures/array"
+	"data-structures/utils"
 )
 
 type MaxHeap struct {

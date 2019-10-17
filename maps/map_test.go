@@ -23,17 +23,11 @@ func TestLinkedListMap(t *testing.T) {
 	//lmap.Remove("k")
 	//
 	//t.Log(lmap.GetSize())
-	bmap := NewBSTMap()
-	bmap.Add("k", "v")
-	bmap.Add("k1", "v1")
-	t.Log(bmap.Get("k"))
-	t.Log(bmap.GetSize())
-	bmap.Set("k", "Val")
-	t.Log(bmap.Get("k"))
-	t.Log(bmap.GetSize())
-	bmap.Remove("k")
-	t.Log(bmap.Get("k"))
-	t.Log(bmap.Get("k1"))
-	t.Log(bmap.GetSize())
+	amap := NewAVLMap()
+	amap.Add("k", "v")
+	t.Log(amap.Get("k"))
+	t.Log(amap.GetSize())
+	amap.Remove("k")
+	t.Log(amap.Get("k"))
 
 }

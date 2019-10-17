@@ -26,13 +26,11 @@ type AVLTree struct {
 }
 
 func NewAVLTree() *AVLTree {
-	return &AVLTree{
-		root: NewNode(),
-	}
+	return &AVLTree{}
 }
 
-func NewNode() *Node {
-	return &Node{key: 0, value: 0, height: 1}
+func NewNode(k, v interface{}) *Node {
+	return &Node{key: k, value: v, height: 1}
 }
 func (this *AVLTree) GetSize() int {
 	return this.size
@@ -131,10 +129,8 @@ func (this *AVLTree) Add(key, value interface{}) {
 func (this *AVLTree) add(node *Node, key, value interface{}) *Node {
 	if node == nil {
 		this.size++
-		return &Node{
-			key:   key,
-			value: value,
-		}
+		return NewNode(key, value)
+
 	}
 	if utils.Compare(key, node.key) < 0 {
 		node.left = this.add(node.left, key, value)
