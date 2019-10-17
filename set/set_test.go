@@ -3,22 +3,22 @@ package set
 import "testing"
 
 func TestLinkedListSet(t *testing.T) {
-	lset := NewLinkedListSet()
+	//lset := NewLinkedListSet()
+	//
+	//for i := 0; i < 10; i++ {
+	//	lset.Add(i)
+	//}
+	//t.Log(lset)
+	//lset.Remove(9)
+	//t.Log(lset)
+	//t.Log(lset.GetSize())
 
+	aset := NewAVLSet()
 	for i := 0; i < 10; i++ {
-		lset.Add(i)
-	}
-	t.Log(lset)
-	lset.Remove(9)
-	t.Log(lset)
-	t.Log(lset.GetSize())
-
-	bset := NewBSTSet()
-	for i := 0; i < 10; i++ {
-		bset.Add(i)
+		aset.Add(i)
 	}
 	//t.Log(bset)
-	bset.Remove(9)
-	t.Log(bset)
-	t.Log(bset.GetSize())
+	aset.Remove(9)
+	t.Log(aset)
+	t.Log(aset.GetSize())
 }

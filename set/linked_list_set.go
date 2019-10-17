@@ -1,6 +1,6 @@
 package set
 
-import "github.com/xushuhui/data-structures/linked_list"
+import "data-structures/linked_list"
 
 type LinkedListSet struct {
 	LinkedList *linked_list.LinkedList

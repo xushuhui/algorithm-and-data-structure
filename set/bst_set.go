@@ -1,7 +1,7 @@
 package set
 
 import (
-	"github.com/xushuhui/data-structures/binary_search_tree"
+	"data-structures/binary_search_tree"
 )
 
 type BSTSet struct {
@@ -10,7 +10,7 @@ type BSTSet struct {
 
 func NewBSTSet() *BSTSet {
 	return &BSTSet{
-		BST: binary_search_tree.BSTConstructor(),
+		BST: binary_search_tree.NewBST(),
 	}
 }
 func (this *BSTSet) Add(e interface{}) {
