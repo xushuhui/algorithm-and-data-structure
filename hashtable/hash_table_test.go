@@ -5,26 +5,10 @@
  * Email: xushuhui@qq.com
  * 博客: https://www.phpst.cn
  */
-package hash_table
+package hashtable
 
-type HashTable struct {
-}
+import "testing"
 
-func GetSize() {
-
-}
-func Remove() {
-
-}
-func Add() {
-
-}
-func Contains() {
-
-}
-func Get() {
-
-}
-func hash() {
+func TestHashTable(t *testing.T) {
 
 }
