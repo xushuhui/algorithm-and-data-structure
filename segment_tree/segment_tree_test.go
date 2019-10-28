@@ -9,6 +9,11 @@ package segment_tree
 
 import "testing"
 
-func TestSegmentTree(t *testing.T )  {
-	
+func TestSegmentTree(t *testing.T) {
+	nums := []int{1, 2, 3, 5}
+	st := NewST(nums, func(a, b interface{}) interface{} {
+		return a.(int) + b.(int)
+	})
+	t.Log(st)
+	t.Log(st.Query(0, 2))
 }
