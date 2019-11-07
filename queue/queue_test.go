@@ -33,6 +33,16 @@ func TestLoopQueue(t *testing.T) {
 	t.Log(q.GetFront())
 	t.Log(q.data)
 }
+func TestLinkedListQueue(t *testing.T) {
+	q := NewLinkedListQueue()
+	for i := 0; i < 5; i++ {
+		q.Enqueue(i)
+	}
+	t.Log(q.linked_list)
+	t.Log(q.Dequeue())
+	t.Log(q.GetFront())
+	t.Log(q.linked_list)
+}
 func TestCompareQueue(t *testing.T) {
 	n := 100000
 	//s1 := utils.GenerateRandomArray(n, 0, n)
