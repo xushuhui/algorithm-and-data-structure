@@ -11,18 +11,18 @@ func NewLinkedListQueue() *LinkedListQueue {
 		linked_list: linked_list.NewLinkedList(),
 	}
 }
-func (this *LinkedListQueue) GetSize() int {
-	return this.linked_list.GetSize()
+func (t *LinkedListQueue) GetSize() int {
+	return t.linked_list.GetSize()
 }
-func (this *LinkedListQueue) IsEmpty() bool {
-	return this.linked_list.IsEmpty()
+func (t *LinkedListQueue) IsEmpty() bool {
+	return t.linked_list.IsEmpty()
 }
-func (this *LinkedListQueue) Enqueue(e interface{}) {
-	this.linked_list.AddLast(e)
+func (t *LinkedListQueue) Enqueue(e interface{}) {
+	t.linked_list.AddLast(e)
 }
-func (this *LinkedListQueue) Dequeue() interface{} {
-	return this.linked_list.RemoveFirst()
+func (t *LinkedListQueue) Dequeue() interface{} {
+	return t.linked_list.RemoveFirst()
 }
-func (this *LinkedListQueue) GetFront() interface{} {
-	return this.linked_list.GetFirst()
+func (t *LinkedListQueue) GetFront() interface{} {
+	return t.linked_list.GetFirst()
 }
