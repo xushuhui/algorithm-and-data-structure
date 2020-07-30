@@ -81,7 +81,6 @@ func (l *LinkedList) RemoveTest(index int) {
 	retNode.next = nil
 	retNode2.next = nil
 	l.size = l.size - 2
-
 }
 func (l *LinkedList) RemoveLast() interface{} {
 	return l.Remove(l.size - 1)
