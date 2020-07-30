@@ -1,5 +1,10 @@
 package datastructure
 
+import (
+	"bytes"
+	"fmt"
+)
+
 type LinkedList struct {
 	dummyHead *LinkedListNode
 	size      int
@@ -9,9 +14,12 @@ type LinkedListNode struct {
 	next *LinkedListNode
 }
 
+func (n *LinkedListNode) String() string {
+	return fmt.Sprint(n.e)
+}
 func NewLinkedList() *LinkedList {
 	return &LinkedList{
-		dummyHead: nil,
+		dummyHead: &LinkedListNode{},
 	}
 }
 
@@ -30,7 +38,8 @@ func (l *LinkedList) Add(index int, e interface{}) {
 	for i := 0; i < index; i++ {
 		prev = prev.next
 	}
-	prev.next = NewLinkedListNode(e, prev.next)
+	//prev.next = NewLinkedListNode(e, prev.next)
+	prev.next = &LinkedListNode{e, prev.next}
 	l.size++
 }
 func (l *LinkedList) GetSize() int {
@@ -44,4 +53,16 @@ func (l *LinkedList) AddFirst(e interface{}) {
 }
 func (l *LinkedList) AddLast(e interface{}) {
 	l.Add(l.size-1, e)
+}
+func (l *LinkedList) String() string {
+	buffer := bytes.Buffer{}
+	cur := l.dummyHead.next
+	for cur != nil {
+		buffer.WriteString(fmt.Sprint(cur.e) + "->")
+		cur = cur.next
+	}
+
+	buffer.WriteString("NULL")
+
+	return buffer.String()
 }

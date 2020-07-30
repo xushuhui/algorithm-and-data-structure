@@ -8,9 +8,13 @@
 package test
 
 import (
+	"data-structures/datastructure"
 	"testing"
 )
 
 func TestLinkedList(t *testing.T) {
+	l := datastructure.NewLinkedList()
+	l.AddFirst(1)
 
+	t.Log(l)
 }
