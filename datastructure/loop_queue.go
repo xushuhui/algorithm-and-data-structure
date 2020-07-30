@@ -5,4 +5,11 @@
  * Email: xushuhui@qq.com
  * 博客: https://www.phpst.cn
  */
-package algorithm_and_data_structure
+package datastructure
+
+type LoopQueue struct {
+	data  []interface{}
+	front int
+	tail  int
+	size  int
+}

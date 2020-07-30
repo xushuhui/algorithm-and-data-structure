@@ -5,7 +5,7 @@
  * Email: xushuhui@qq.com
  * 博客: https://www.phpst.cn
  */
-package algorithm_and_data_structure
+package datastructure
 
 //const RED bool = true
 //const BLACK bool = false
