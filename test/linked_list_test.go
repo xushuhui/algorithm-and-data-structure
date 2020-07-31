@@ -33,3 +33,14 @@ func TestLinkedList(t *testing.T) {
 	//t.Log(l)
 
 }
+func TestLinkedListMap(t *testing.T) {
+	m := datastructure.NewLinkedListMap()
+	m.Add("k1", "v1")
+	t.Log(m)
+	m.Add("k2", "v2")
+	t.Log(m)
+	m.Add("k3", "v3")
+	t.Log(m)
+	m.Remove("k3")
+	t.Log(m)
+}

@@ -6,25 +6,25 @@ import (
 )
 
 type LinkedList struct {
-	dummyHead *LinkedListNode
+	dummyHead *node
 	size      int
 }
-type LinkedListNode struct {
+type node struct {
 	e    interface{}
-	next *LinkedListNode
+	next *node
 }
 
-func (n *LinkedListNode) String() string {
+func (n *node) String() string {
 	return fmt.Sprint(n.e)
 }
 func NewLinkedList() *LinkedList {
 	return &LinkedList{
-		dummyHead: &LinkedListNode{},
+		dummyHead: &node{},
 	}
 }
 
-func NewLinkedListNode(e interface{}, next *LinkedListNode) *LinkedListNode {
-	return &LinkedListNode{
+func NewLinkedListNode(e interface{}, next *node) *node {
+	return &node{
 		e:    e,
 		next: next,
 	}

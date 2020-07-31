@@ -5,7 +5,7 @@ type Stack interface {
 	Pop() interface{}
 	IsEmpty() bool
 	GetSize() int
-	Peek() (e interface{})
+	Peek() interface{}
 }
 type LinkedListStack struct {
 	linkedlist *LinkedList
@@ -17,13 +17,13 @@ func NewLinkedListStack() *LinkedListStack {
 	}
 }
 func (l *LinkedListStack) Push(e interface{}) {
-	l.linkedlist.AddLast(e)
+	l.linkedlist.AddFirst(e)
 }
 func (l *LinkedListStack) Pop() interface{} {
-	return l.linkedlist.RemoveLast()
+	return l.linkedlist.RemoveFirst()
 }
 func (l *LinkedListStack) Peek() interface{} {
-	return l.linkedlist.GetLast()
+	return l.linkedlist.GetFirst()
 }
 func (l *LinkedListStack) IsEmpty() bool {
 	return l.linkedlist.IsEmpty()
