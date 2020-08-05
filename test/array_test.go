@@ -8,9 +8,14 @@
 package test
 
 import (
+	"data-structures/datastructure"
 	"testing"
 )
 
 func TestArray(t *testing.T) {
-
+	a := datastructure.NewArray(2)
+	a.Add(0, 1)
+	t.Log(a)
+	a.Add(1, 2)
+	t.Log(a)
 }
