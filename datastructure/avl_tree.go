@@ -1,10 +1,3 @@
-/**
- * Copyright (c) 2019 - xushuhui
- * Author: xushuhui
- * 微信公众号: 互联网工程师
- * Email: xushuhui@qq.com
- * 博客: https://www.phpst.cn
- */
 package datastructure
 
 // 对节点y进行向右旋转操作，返回旋转后新的根节点x
@@ -24,3 +17,10 @@ package datastructure
 //   T2  z                     T1 T2 T3 T4
 //      / \
 //     T3 T4
+
+type Avl struct {
+}
+
+func NewAvl() *Avl {
+	return &Avl{}
+}

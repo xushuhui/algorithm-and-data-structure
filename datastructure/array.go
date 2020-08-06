@@ -20,6 +20,10 @@ func (a *Array) Add(index int, e interface{}) {
 	if index < 0 || index > a.size {
 		panic("invalid index")
 	}
+	//扩容
+	if a.size == len(a.data) {
+		a.resize(a.size * 2)
+	}
 	for i := a.size - 1; i >= index; i-- {
 		a.data[i+1] = a.data[i]
 	}
@@ -43,6 +47,9 @@ func (a *Array) Remove(index int) interface{} {
 
 	a.size--
 	a.data[a.size] = nil
+	if a.size == len(a.data)/4 && len(a.data)/2 != 0 {
+		a.resize(len(a.data))
+	}
 	return ret
 }
 func (a *Array) RemoveLast() interface{} {
@@ -98,6 +105,13 @@ func (a *Array) GetSize() int {
 }
 func (a *Array) IsEmpty() bool {
 	return a.size == 0
+}
+func (a *Array) resize(newCapacity int) {
+	newData := make([]interface{}, newCapacity)
+	for i := 0; i < a.size; i++ {
+		newData[i] = a.data[i]
+	}
+	a.data = newData
 }
 func (a *Array) String() string {
 	var buffer bytes.Buffer
