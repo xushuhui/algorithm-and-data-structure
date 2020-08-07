@@ -19,8 +19,15 @@ package datastructure
 //     T3 T4
 
 type Avl struct {
+	Size int
 }
 
 func NewAvl() *Avl {
 	return &Avl{}
+}
+func (a *Avl) GetSize() int {
+	return a.Size
+}
+func (a *Avl) IsEmpty() bool {
+	return a.Size == 0
 }
