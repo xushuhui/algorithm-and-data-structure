@@ -17,7 +17,6 @@ package datastructure
 //   T2  z                     T1 T2 T3 T4
 //      / \
 //     T3 T4
-
 type Avl struct {
 	Size int
 }

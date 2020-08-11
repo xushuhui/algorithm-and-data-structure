@@ -6,6 +6,9 @@ import (
 )
 
 func TestSort(t *testing.T) {
-	arr := []int{2, 3, 1, 6, 4, 8}
-	t.Log(algorithm.BubbleSort(arr))
+	strarr := algorithm.StringArray{"x", "A", "B", "E", "H", "G"}
+	intArr := algorithm.IntArray{6, 3, 4, 8, 1}
+	t.Log(algorithm.SelectionSort(strarr))
+	//t.Log(algorithm.SelectionSort(intArr))
+	t.Log(algorithm.InsertionSort(intArr))
 }

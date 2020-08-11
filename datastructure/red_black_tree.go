@@ -21,3 +21,16 @@ package datastructure
 //   x    T2   ------->   y   node
 //  / \                       /  \
 // y  T1                     T1  T2
+
+type RedBlackTree struct {
+}
+
+func NewRedBlackTree() *RedBlackTree {
+	return &RedBlackTree{}
+}
+func Add() {
+
+}
+func Remove() {
+
+}

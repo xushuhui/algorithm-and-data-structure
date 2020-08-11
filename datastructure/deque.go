@@ -2,6 +2,9 @@ package datastructure
 
 type Deque struct {
 	size int
+	next *DequeNode
+}
+type DequeNode struct {
 }
 
 func NewDeque() *Deque {
