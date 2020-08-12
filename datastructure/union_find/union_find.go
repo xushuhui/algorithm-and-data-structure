@@ -8,7 +8,7 @@
 package union_find
 
 type UF interface {
-	GetSize()int
-	IsConnected(p, q intb)bool
+	GetSize() int
+	IsConnected(p, q int) bool
 	UnionElements(p, q int)
 }

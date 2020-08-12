@@ -1,14 +1,25 @@
 package algorithm
 
-import "sort"
+import (
+	"data-structures/utils"
+)
 
-func InsertionSort(arr sort.Interface) sort.Interface {
-	for i := 0; i < arr.Len(); i++ {
-		for j := i; j >= 1; j-- {
-			if arr.Less(j, j-1) {
-				arr.Swap(j, j-1)
-			}
+func InsertionSort(arr []interface{}) {
+	for i := 0; i < len(arr); i++ {
+		for j := i; j > 0 && utils.Compare(arr[j], arr[j-1]) < 0; j-- {
+			arr[j], arr[j-1] = arr[j-1], arr[j]
 		}
 	}
-	return arr
+	return
+}
+func InsertionSortAdvance(arr []interface{}) {
+	for i := 0; i < len(arr); i++ {
+		t := arr[i]
+		j := i
+		for ; j > 0 && utils.Compare(t, arr[j-1]) < 0; j-- {
+			arr[j] = arr[j-1]
+		}
+		arr[j] = t
+	}
+	return
 }

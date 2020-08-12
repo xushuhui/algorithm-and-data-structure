@@ -1,6 +1,5 @@
 package algorithm
 
-func BubbleSort(arr []int) []int {
+func BubbleSort(arr []int) {
 
-	return arr
 }

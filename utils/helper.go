@@ -11,19 +11,42 @@ import (
 	"time"
 )
 
-func GenerateRandomArray(n, min, max int) []int {
-	var arr []int
+func GenerateRandomArray(n, min, max int) []interface{} {
+	var arr []interface{}
 	for i := 0; i < n; i++ {
 		num := rand.Intn(max-min) + min
 		arr = append(arr, num)
 	}
 	return arr
 }
-func TimeSpent(funcName string, inner func(arr []int), arr []int) {
+
+// 判断arr数组是否有序
+func isSorted(arr []interface{}) bool {
+	for i := 0; i < len(arr)-1; i++ {
+
+		if Compare(arr[i], arr[i+1]) > 0 {
+			return false
+		}
+	}
+	return true
+}
+func TimeSpent(funcName string, inner func(arr []interface{}), arr []interface{}) {
 	start := time.Now()
 	inner(arr)
-	fmt.Println(funcName+" time spent:", time.Since(start).Seconds())
+	ts := time.Since(start).Seconds()
+	n := len(arr)
+	if !isSorted(arr) {
+		return
+	}
+	fmt.Println(funcName, "n: ", n, " time :", ts)
+
 }
+func CopyArray(arr []interface{}, n int) []interface{} {
+	var newArr = make([]interface{}, n)
+	copy(newArr, arr)
+	return newArr
+}
+
 func Compare(a interface{}, b interface{}) int {
 	aType := reflect.TypeOf(a).String()
 	bType := reflect.TypeOf(b).String()
