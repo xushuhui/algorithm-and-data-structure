@@ -20,6 +20,14 @@ func GenerateRandomArray(n, min, max int) []interface{} {
 	return arr
 }
 
+func GenerateOrderedArray(n  int) []interface{} {
+	var arr []interface{}
+	for i := 0; i < n; i++ {
+
+		arr = append(arr, i)
+	}
+	return arr
+}
 // 判断arr数组是否有序
 func isSorted(arr []interface{}) bool {
 	for i := 0; i < len(arr)-1; i++ {

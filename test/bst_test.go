@@ -12,8 +12,4 @@ import (
 )
 
 func TestBST(t *testing.T) {
-
-}
-func TestBST2(t *testing.T) {
-
 }
