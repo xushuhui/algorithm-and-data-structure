@@ -103,6 +103,9 @@ func (a *Array) Set(index int, e interface{}) {
 func (a *Array) GetSize() int {
 	return a.size
 }
+func (a *Array) GetCapacity() int {
+	return len(a.data)
+}
 func (a *Array) IsEmpty() bool {
 	return a.size == 0
 }
