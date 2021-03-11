@@ -1,4 +1,4 @@
-package algorithm
+package sort
 
 func BubbleSort(arr []int) {
 

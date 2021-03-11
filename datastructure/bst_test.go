@@ -5,10 +5,11 @@
  * Email: xushuhui@qq.com
  * 博客: https://www.phpst.cn
  */
-package test
+package datastructure
 
-import "testing"
+import (
+	"testing"
+)
 
-func TestRBTree(t *testing.T) {
-
+func TestBST(t *testing.T) {
 }

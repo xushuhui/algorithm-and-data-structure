@@ -1,7 +1,6 @@
-package test
+package sort
 
 import (
-	"data-structures/algorithm"
 	"data-structures/utils"
 	"testing"
 )
@@ -33,6 +32,6 @@ func sort(s []interface{}, n int) {
 	s6 := utils.CopyArray(s, n)
 
 	//utils.TimeSpent("SelectionSort", algorithm.SelectionSort, s4)
-	utils.TimeSpent("InsertionSort", algorithm.InsertionSort, s5)
-	utils.TimeSpent("InsertionSortAdvance", algorithm.InsertionSortAdvance, s6)
+	utils.TimeSpent("InsertionSort", InsertionSort, s5)
+	utils.TimeSpent("InsertionSortAdvance", InsertionSortAdvance, s6)
 }

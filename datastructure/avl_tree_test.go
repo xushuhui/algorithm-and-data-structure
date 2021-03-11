@@ -5,10 +5,12 @@
  * Email: xushuhui@qq.com
  * 博客: https://www.phpst.cn
  */
-package test
+package datastructure
 
-import "testing"
+import (
+	"testing"
+)
 
-func TestHashTable(t *testing.T) {
+func TestAVL(t *testing.T) {
 
 }

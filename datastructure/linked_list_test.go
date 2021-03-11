@@ -5,15 +5,14 @@
  * Email: xushuhui@qq.com
  * 博客: https://www.phpst.cn
  */
-package test
+package datastructure
 
 import (
-	"data-structures/datastructure"
 	"testing"
 )
 
 func TestLinkedList(t *testing.T) {
-	l := datastructure.NewLinkedList()
+	l := NewLinkedList()
 	for i := 0; i < 5; i++ {
 		l.AddLast(i)
 	}
@@ -34,7 +33,7 @@ func TestLinkedList(t *testing.T) {
 
 }
 func TestLinkedListMap(t *testing.T) {
-	m := datastructure.NewLinkedListMap()
+	m := NewLinkedListMap()
 	m.Add("k1", "v1")
 	t.Log(m)
 	m.Add("k2", "v2")

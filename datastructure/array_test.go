@@ -5,12 +5,16 @@
  * Email: xushuhui@qq.com
  * 博客: https://www.phpst.cn
  */
-package test
+package datastructure
 
 import (
 	"testing"
 )
 
-func TestTrie(t *testing.T) {
-
+func TestArray(t *testing.T) {
+	a := NewArray(2)
+	a.Add(0, 1)
+	t.Log(a)
+	a.Add(1, 2)
+	t.Log(a)
 }

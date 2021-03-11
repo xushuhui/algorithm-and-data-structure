@@ -5,11 +5,10 @@
  * Email: xushuhui@qq.com
  * 博客: https://www.phpst.cn
  */
-package test
+package datastructure
 
-import (
-	"testing"
-)
+import "testing"
 
-func TestBST(t *testing.T) {
+func TestHashTable(t *testing.T) {
+
 }

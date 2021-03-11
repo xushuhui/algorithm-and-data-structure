@@ -5,15 +5,14 @@
  * Email: xushuhui@qq.com
  * 博客: https://www.phpst.cn
  */
-package test
+package datastructure
 
 import (
-	"data-structures/datastructure"
 	"testing"
 )
 
 func TestStack(t *testing.T) {
-	l := datastructure.NewLinkedListStack()
+	l := NewLinkedListStack()
 	for i := 0; i < 5; i++ {
 		l.Push(i)
 	}

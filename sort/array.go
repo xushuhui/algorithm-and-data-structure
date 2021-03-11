@@ -1,4 +1,4 @@
-package algorithm
+package sort
 
 type StringArray []string
 type IntArray []int

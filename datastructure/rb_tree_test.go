@@ -5,15 +5,10 @@
  * Email: xushuhui@qq.com
  * 博客: https://www.phpst.cn
  */
-package test
+package datastructure
 
-import (
-	"testing"
-)
+import "testing"
 
-func TestLinkedListQueue(t *testing.T) {
-
-}
-func TestCompareQueue(t *testing.T) {
+func TestRBTree(t *testing.T) {
 
 }

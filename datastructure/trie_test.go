@@ -5,12 +5,12 @@
  * Email: xushuhui@qq.com
  * 博客: https://www.phpst.cn
  */
-package test
+package datastructure
 
 import (
 	"testing"
 )
 
-func TestSegmentTree(t *testing.T) {
+func TestTrie(t *testing.T) {
 
 }
