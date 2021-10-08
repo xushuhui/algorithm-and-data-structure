@@ -37,10 +37,7 @@ func q1(nums []int) int {
 
 //时间复杂度O(n) 空间复杂度O(1)
 func q1_1(nums []int) int {
-	l := len(nums)
-	if l < 1 || l > 10000 {
-		panic(" index out of slice ")
-	}
+
 	var target int
 
 	for i, v := range nums {

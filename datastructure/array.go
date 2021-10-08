@@ -6,17 +6,17 @@ import (
 )
 
 type Array struct {
-	data []interface{}
+	data []int
 	size int
 }
 
 func NewArray(capacity int) *Array {
 	return &Array{
-		data: make([]interface{}, capacity),
+		data: make([]int, capacity),
 		size: 0,
 	}
 }
-func (a *Array) Add(index int, e interface{}) {
+func (a *Array) Add(index int, e int) {
 	if index < 0 || index > a.size {
 		panic("invalid index")
 	}
@@ -30,13 +30,13 @@ func (a *Array) Add(index int, e interface{}) {
 	a.data[index] = e
 	a.size++
 }
-func (a *Array) AddFirst(e interface{}) {
+func (a *Array) AddFirst(e int) {
 	a.Add(0, e)
 }
-func (a *Array) AddLast(e interface{}) {
+func (a *Array) AddLast(e int) {
 	a.Add(a.size, e)
 }
-func (a *Array) Remove(index int) interface{} {
+func (a *Array) Remove(index int) int {
 	if index < 0 || index >= a.size {
 		panic("invalid index")
 	}
@@ -46,25 +46,25 @@ func (a *Array) Remove(index int) interface{} {
 	}
 
 	a.size--
-	a.data[a.size] = nil
+	a.data[a.size] = 0
 	if a.size == len(a.data)/4 && len(a.data)/2 != 0 {
 		a.resize(len(a.data))
 	}
 	return ret
 }
-func (a *Array) RemoveLast() interface{} {
+func (a *Array) RemoveLast() int {
 	return a.Remove(a.size - 1)
 }
-func (a *Array) RemoveFirst() interface{} {
+func (a *Array) RemoveFirst() int {
 	return a.Remove(0)
 }
-func (a *Array) RemoveElement(e interface{}) {
+func (a *Array) RemoveElement(e int) {
 	index := a.Find(e)
 	if index != -1 {
 		a.Remove(index)
 	}
 }
-func (a *Array) Find(e interface{}) int {
+func (a *Array) Find(e int) int {
 	for i := 0; i < a.size; i++ {
 		if a.data[i] == e {
 			return i
@@ -72,7 +72,7 @@ func (a *Array) Find(e interface{}) int {
 	}
 	return -1
 }
-func (a *Array) Contains(e interface{}) bool {
+func (a *Array) Contains(e int) bool {
 	for i := 0; i < a.size; i++ {
 		if a.data[i] == e {
 			return true
@@ -80,21 +80,21 @@ func (a *Array) Contains(e interface{}) bool {
 	}
 	return false
 }
-func (a *Array) Get(index int) interface{} {
+func (a *Array) Get(index int) int {
 	if index < 0 || index >= a.size {
 		panic("invalid index")
 	}
 	return a.data[index]
 }
-func (a *Array) GetLast() interface{} {
+func (a *Array) GetLast() int {
 	return a.Get(a.size - 1)
 }
 
-func (a *Array) GetFirst() interface{} {
+func (a *Array) GetFirst() int {
 	return a.Get(0)
 }
 
-func (a *Array) Set(index int, e interface{}) {
+func (a *Array) Set(index int, e int) {
 	if index < 0 || index >= a.size {
 		panic("invalid index")
 	}
@@ -110,7 +110,7 @@ func (a *Array) IsEmpty() bool {
 	return a.size == 0
 }
 func (a *Array) resize(newCapacity int) {
-	newData := make([]interface{}, newCapacity)
+	newData := make([]int, newCapacity)
 	for i := 0; i < a.size; i++ {
 		newData[i] = a.data[i]
 	}
@@ -122,7 +122,7 @@ func (a *Array) String() string {
 	buffer.WriteString(fmt.Sprintf("Array: size = %d, capacity = %d\n", a.size, len(a.data)))
 	buffer.WriteString("[")
 	for i := 0; i < a.size; i++ {
-		// fmt.Sprint 将 interface{} 类型转换为字符串
+		// fmt.Sprint 将 int 类型转换为字符串
 		buffer.WriteString(fmt.Sprint(a.data[i]))
 		if i != (a.size - 1) {
 			buffer.WriteString(", ")
