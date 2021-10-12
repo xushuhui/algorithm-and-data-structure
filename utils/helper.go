@@ -39,7 +39,7 @@ func GenerateTestOrderedArray(n int) []interface{} {
 }
 
 // 判断arr数组是否有序
-func isSorted(arr []interface{}) bool {
+func isSorted(arr []int) bool {
 	for i := 0; i < len(arr)-1; i++ {
 
 		if Compare(arr[i], arr[i+1]) > 0 {
@@ -48,7 +48,7 @@ func isSorted(arr []interface{}) bool {
 	}
 	return true
 }
-func TimeSpent(funcName string, inner func(arr []interface{}), arr []interface{}) {
+func TimeSpent(funcName string, inner func(arr []int), arr []int) {
 	start := time.Now()
 	inner(arr)
 	ts := time.Since(start).Seconds()
@@ -59,8 +59,8 @@ func TimeSpent(funcName string, inner func(arr []interface{}), arr []interface{}
 	fmt.Println(funcName, "n: ", n, " time :", ts)
 
 }
-func CopyArray(arr []interface{}, n int) []interface{} {
-	var newArr = make([]interface{}, n)
+func CopyArray(arr []int, n int) []int {
+	var newArr = make([]int, n)
 	copy(newArr, arr)
 	return newArr
 }

@@ -4,7 +4,7 @@ import (
 	"data-structures/utils"
 )
 
-func InsertionSort(arr []interface{}) {
+func InsertionSort(arr []int) {
 	for i := 0; i < len(arr); i++ {
 		for j := i; j > 0 && utils.Compare(arr[j], arr[j-1]) < 0; j-- {
 			arr[j], arr[j-1] = arr[j-1], arr[j]
@@ -12,11 +12,11 @@ func InsertionSort(arr []interface{}) {
 	}
 	return
 }
-func InsertionSortAdvance(arr []interface{}) {
+func InsertionSortAdvance(arr []int) {
 	for i := 0; i < len(arr); i++ {
 		t := arr[i]
 		j := i
-		for ; j > 0 && utils.Compare(t, arr[j-1]) < 0; j-- {
+		for ; j > 0 && t < arr[j-1]; j-- {
 			arr[j] = arr[j-1]
 		}
 		arr[j] = t

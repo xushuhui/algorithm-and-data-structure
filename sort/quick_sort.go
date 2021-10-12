@@ -2,16 +2,16 @@ package sort
 
 import "data-structures/utils"
 
-func QuickSort(arr []interface{}) {
+func QuickSort(arr []int) {
 
 }
-func quickSort(arr []interface{}, left, right interface{}) {
+func quickSort(arr []int, left, right int) {
 	if utils.Compare(left, right) > 0 {
 		return
 	}
 	//index := Partition(arr,left,right)
 	//quickSort()
 }
-func Partition(arr []interface{}, left, right interface{}) (index int) {
+func Partition(arr []int, left, right int) (index int) {
 	return
 }

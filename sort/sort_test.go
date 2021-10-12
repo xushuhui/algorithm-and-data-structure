@@ -6,6 +6,7 @@ import (
 )
 
 func TestSort(t *testing.T) {
+	t.Log(BubbleSort([]int{2,3,1,5,4,6}))
 	//n := 10000000
 	//s1 := utils.GenerateRandomArray(n, 0, n)
 	//s2 := utils.CopyArray(s1, n)
@@ -17,16 +18,16 @@ func TestSort(t *testing.T) {
 
 	//utils.TimeSpent("SelectionSort", algorithm.SelectionSort, s4)
 
-	for _, v := range []int{100000, 1000000, 10000000} {
-		s := utils.GenerateOrderedArray(v)
-		sort(s, v)
-	}
-	for _, v := range []int{100000, 1000000, 10000000} {
-		s := utils.GenerateTestOrderedArray(v)
-		sort(s, v)
-	}
+	// for _, v := range []int{100000, 1000000, 10000000} {
+	// 	s := utils.GenerateOrderedArray(v)
+	// 	sort(s, v)
+	// }
+	// for _, v := range []int{100000, 1000000, 10000000} {
+	// 	s := utils.GenerateTestOrderedArray(v)
+	// 	sort(s, v)
+	// }
 }
-func sort(s []interface{}, n int) {
+func sort(s []int, n int) {
 
 	s5 := utils.CopyArray(s, n)
 	s6 := utils.CopyArray(s, n)
