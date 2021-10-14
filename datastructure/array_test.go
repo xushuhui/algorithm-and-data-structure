@@ -15,6 +15,6 @@ func TestArray(t *testing.T) {
 	a := NewArray(2)
 	a.Add(0, 1)
 	t.Log(a)
-	a.Add(1, 2)
+	a.Add(2, 2)
 	t.Log(a)
 }

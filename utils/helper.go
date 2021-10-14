@@ -11,8 +11,8 @@ import (
 	"time"
 )
 
-func GenerateRandomArray(n, min, max int) []interface{} {
-	var arr []interface{}
+func GenerateRandomArray(n, min, max int) []int {
+	var arr []int
 	for i := 0; i < n; i++ {
 		num := rand.Intn(max-min) + min
 		arr = append(arr, num)
@@ -20,16 +20,16 @@ func GenerateRandomArray(n, min, max int) []interface{} {
 	return arr
 }
 
-func GenerateOrderedArray(n int) []interface{} {
-	var arr []interface{}
+func GenerateOrderedArray(n int) []int{
+	var arr []int
 	for i := 0; i < n; i++ {
 
 		arr = append(arr, i)
 	}
 	return arr
 }
-func GenerateTestOrderedArray(n int) []interface{} {
-	var arr []interface{}
+func GenerateTestOrderedArray(n int) []int {
+	var arr []int
 	for i := 0; i < n-1; i++ {
 
 		arr = append(arr, i)
