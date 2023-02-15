@@ -16,11 +16,12 @@ func NewArray(capacity int) *Array {
 		size: 0,
 	}
 }
+
 func (a *Array) Add(index int, e int) {
 	if index < 0 || index > a.size {
 		panic("invalid index")
 	}
-	//扩容
+	// 扩容
 	if a.size == len(a.data) {
 		a.resize(a.size * 2)
 	}
@@ -30,25 +31,28 @@ func (a *Array) Add(index int, e int) {
 	a.data[index] = e
 	a.size++
 }
+
 func (a *Array) AddV2(index int, e int) {
 	if index < 0 || index > a.size {
 		panic("invalid index")
 	}
-	//扩容
+	// 扩容
 	if a.size == len(a.data) {
 		a.resize(a.size * 2)
 	}
 	a.data[a.size] = a.data[index]
 	a.data[index] = e
 	a.size++
-
 }
+
 func (a *Array) AddFirst(e int) {
 	a.Add(0, e)
 }
+
 func (a *Array) AddLast(e int) {
 	a.Add(a.size, e)
 }
+
 func (a *Array) Remove(index int) int {
 	if index < 0 || index >= a.size {
 		panic("invalid index")
@@ -65,18 +69,22 @@ func (a *Array) Remove(index int) int {
 	}
 	return ret
 }
+
 func (a *Array) RemoveLast() int {
 	return a.Remove(a.size - 1)
 }
+
 func (a *Array) RemoveFirst() int {
 	return a.Remove(0)
 }
+
 func (a *Array) RemoveElement(e int) {
 	index := a.Find(e)
 	if index != -1 {
 		a.Remove(index)
 	}
 }
+
 func (a *Array) Find(e int) int {
 	for i := 0; i < a.size; i++ {
 		if a.data[i] == e {
@@ -85,6 +93,7 @@ func (a *Array) Find(e int) int {
 	}
 	return -1
 }
+
 func (a *Array) Contains(e int) bool {
 	for i := 0; i < a.size; i++ {
 		if a.data[i] == e {
@@ -93,12 +102,14 @@ func (a *Array) Contains(e int) bool {
 	}
 	return false
 }
+
 func (a *Array) Get(index int) int {
 	if index < 0 || index >= a.size {
 		panic("invalid index")
 	}
 	return a.data[index]
 }
+
 func (a *Array) GetLast() int {
 	return a.Get(a.size - 1)
 }
@@ -113,15 +124,19 @@ func (a *Array) Set(index int, e int) {
 	}
 	a.data[index] = e
 }
+
 func (a *Array) GetSize() int {
 	return a.size
 }
+
 func (a *Array) GetCapacity() int {
 	return len(a.data)
 }
+
 func (a *Array) IsEmpty() bool {
 	return a.size == 0
 }
+
 func (a *Array) resize(newCapacity int) {
 	newData := make([]int, newCapacity)
 	for i := 0; i < a.size; i++ {
@@ -129,6 +144,7 @@ func (a *Array) resize(newCapacity int) {
 	}
 	a.data = newData
 }
+
 func (a *Array) String() string {
 	var buffer bytes.Buffer
 

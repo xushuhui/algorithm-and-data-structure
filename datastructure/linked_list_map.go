@@ -30,12 +30,14 @@ func NewMapNode(key, value interface{}, next *mapNode) *mapNode {
 		next:  next,
 	}
 }
+
 func NewLinkedListMap() *LinkedListMap {
 	return &LinkedListMap{
 		dummyHead: &mapNode{},
 		size:      0,
 	}
 }
+
 func (l *LinkedListMap) getNode(key interface{}) *mapNode {
 	current := l.dummyHead.next
 	for current != nil {
@@ -46,6 +48,7 @@ func (l *LinkedListMap) getNode(key interface{}) *mapNode {
 	}
 	return nil
 }
+
 func (l *LinkedListMap) Add(key, value interface{}) {
 	node := l.getNode(key)
 	if node == nil {
@@ -55,6 +58,7 @@ func (l *LinkedListMap) Add(key, value interface{}) {
 		node.value = value
 	}
 }
+
 func (l *LinkedListMap) Remove(key interface{}) interface{} {
 	node := l.getNode(key)
 	if node == nil {
@@ -73,9 +77,11 @@ func (l *LinkedListMap) Remove(key interface{}) interface{} {
 	}
 	return nil
 }
+
 func (l *LinkedListMap) Contains(key interface{}) bool {
 	return l.getNode(key) != nil
 }
+
 func (l *LinkedListMap) Get(key interface{}) interface{} {
 	node := l.getNode(key)
 	if node != nil {
@@ -83,6 +89,7 @@ func (l *LinkedListMap) Get(key interface{}) interface{} {
 	}
 	return nil
 }
+
 func (l *LinkedListMap) Set(key, newValue interface{}) {
 	node := l.getNode(key)
 	if node == nil {
@@ -90,12 +97,15 @@ func (l *LinkedListMap) Set(key, newValue interface{}) {
 	}
 	node.value = newValue
 }
+
 func (l *LinkedListMap) GetSize() int {
 	return l.size
 }
+
 func (l *LinkedListMap) IsEmpty(key, value interface{}) bool {
 	return l.size == 0
 }
+
 func (l *LinkedListMap) String() string {
 	buffer := bytes.Buffer{}
 	cur := l.dummyHead.next

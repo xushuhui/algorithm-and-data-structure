@@ -7,8 +7,8 @@
  */
 package datastructure
 
-//const RED bool = true
-//const BLACK bool = false
+// const RED bool = true
+// const BLACK bool = false
 
 //   node                     x
 //  /   \     左旋转         /  \
@@ -22,15 +22,14 @@ package datastructure
 //  / \                       /  \
 // y  T1                     T1  T2
 
-type RedBlackTree struct {
-}
+type RedBlackTree struct{}
 
 func NewRedBlackTree() *RedBlackTree {
 	return &RedBlackTree{}
 }
+
 func Add() {
-
 }
-func Remove() {
 
+func Remove() {
 }

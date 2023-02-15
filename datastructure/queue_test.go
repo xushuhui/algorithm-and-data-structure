@@ -12,8 +12,7 @@ import (
 )
 
 func TestLinkedListQueue(t *testing.T) {
-
 }
-func TestCompareQueue(t *testing.T) {
 
+func TestCompareQueue(t *testing.T) {
 }

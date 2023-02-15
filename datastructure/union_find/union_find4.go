@@ -14,6 +14,7 @@ func NewUnionFind4(size int) *UnionFind4 {
 	}
 	return &UnionFind4{parent: parent, rank: rank}
 }
+
 func (this *UnionFind4) GetSize() int {
 	return len(this.parent)
 }
@@ -29,9 +30,11 @@ func (this *UnionFind4) find(p int) int {
 	}
 	return p
 }
+
 func (this *UnionFind4) IsConnected(p, q int) bool {
 	return this.find(p) == this.find(q)
 }
+
 func (this *UnionFind4) UnionElements(p, q int) {
 	pRoot := this.find(p)
 	qRoot := this.find(q)

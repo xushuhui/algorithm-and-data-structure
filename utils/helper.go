@@ -20,18 +20,17 @@ func GenerateRandomArray(n, min, max int) []int {
 	return arr
 }
 
-func GenerateOrderedArray(n int) []int{
+func GenerateOrderedArray(n int) []int {
 	var arr []int
 	for i := 0; i < n; i++ {
-
 		arr = append(arr, i)
 	}
 	return arr
 }
+
 func GenerateTestOrderedArray(n int) []int {
 	var arr []int
 	for i := 0; i < n-1; i++ {
-
 		arr = append(arr, i)
 	}
 	arr = append(arr, 1)
@@ -41,13 +40,13 @@ func GenerateTestOrderedArray(n int) []int {
 // 判断arr数组是否有序
 func isSorted(arr []int) bool {
 	for i := 0; i < len(arr)-1; i++ {
-
 		if Compare(arr[i], arr[i+1]) > 0 {
 			return false
 		}
 	}
 	return true
 }
+
 func TimeSpent(funcName string, inner func(arr []int), arr []int) {
 	start := time.Now()
 	inner(arr)
@@ -57,10 +56,10 @@ func TimeSpent(funcName string, inner func(arr []int), arr []int) {
 		return
 	}
 	fmt.Println(funcName, "n: ", n, " time :", ts)
-
 }
+
 func CopyArray(arr []int, n int) []int {
-	var newArr = make([]int, n)
+	newArr := make([]int, n)
 	copy(newArr, arr)
 	return newArr
 }
@@ -102,11 +101,11 @@ func Compare(a interface{}, b interface{}) int {
 		panic("unsupported type params")
 	}
 }
+
 func ReadFile(filename string) []string {
 	var words []string
 
 	file, err := os.Open(filename)
-
 	if err != nil {
 		panic(err)
 	}
@@ -130,6 +129,7 @@ func ReadFile(filename string) []string {
 
 	return words
 }
+
 func extractStr(str string) string {
 	var res []rune
 	for _, letter := range str {

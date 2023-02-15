@@ -1,9 +1,10 @@
 package sort
 
 import (
-	"data-structures/utils"
 	"fmt"
 	"testing"
+
+	"data-structures/utils"
 
 	"golang.org/x/sync/errgroup"
 )
@@ -15,18 +16,18 @@ func TestSlice(t *testing.T) {
 	BubbleSort(s0)
 	fmt.Println(s0)
 }
-func TestSort(t *testing.T) {
 
+func TestSort(t *testing.T) {
 	n := 100000
 	s0 := utils.GenerateRandomArray(n, 0, n)
 
 	var eg errgroup.Group
 	eg.Go(func() error {
-		utils.TimeSpent("BubbleSort", BubbleSort,  utils.CopyArray(s0, n))
+		utils.TimeSpent("BubbleSort", BubbleSort, utils.CopyArray(s0, n))
 		return nil
 	})
 	eg.Go(func() error {
-		utils.TimeSpent("QuickSort", QuickSort,  utils.CopyArray(s0, n))
+		utils.TimeSpent("QuickSort", QuickSort, utils.CopyArray(s0, n))
 		return nil
 	})
 	eg.Go(func() error {
@@ -45,14 +46,13 @@ func TestSort(t *testing.T) {
 	if err != nil {
 		return
 	}
-
 }
-func sort(s []int, n int) {
 
+func sort(s []int, n int) {
 	s5 := utils.CopyArray(s, n)
 	s6 := utils.CopyArray(s, n)
 
-	//utils.TimeSpent("SelectionSort", algorithm.SelectionSort, s4)
+	// utils.TimeSpent("SelectionSort", algorithm.SelectionSort, s4)
 	utils.TimeSpent("InsertionSort", InsertionSort, s5)
 	utils.TimeSpent("InsertionSortAdvance", InsertionSortAdvance, s6)
 }

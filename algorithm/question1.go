@@ -20,7 +20,7 @@ func q1(nums []int) int {
 	if l < 1 || l > 10000 {
 		panic(" index out of slice ")
 	}
-	//另一个数组
+	// 另一个数组
 	b := make([]int, 0, l)
 	for i := 0; i < l; i++ {
 		b = append(b, i)
@@ -35,9 +35,8 @@ func q1(nums []int) int {
 	return target
 }
 
-//时间复杂度O(n) 空间复杂度O(1)
+// 时间复杂度O(n) 空间复杂度O(1)
 func q1_1(nums []int) int {
-
 	var target int
 
 	for i, v := range nums {
@@ -47,6 +46,7 @@ func q1_1(nums []int) int {
 	}
 	return target
 }
+
 func q1_2(nums []int) int {
 	l := len(nums)
 	if l < 1 || l > 10000 {

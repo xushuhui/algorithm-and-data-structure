@@ -8,6 +8,7 @@ func InsertionSort(arr []int) {
 	}
 	return
 }
+
 func InsertionSortAdvance(arr []int) {
 	for i := 0; i < len(arr); i++ {
 		t := arr[i]

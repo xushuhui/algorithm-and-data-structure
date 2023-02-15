@@ -9,9 +9,9 @@ type HashTable struct {
 func NewHasTable() *HashTable {
 	return &HashTable{}
 }
+
 func (h *HashTable) Add() {
-
 }
-func (h *HashTable) Set() {
 
+func (h *HashTable) Set() {
 }

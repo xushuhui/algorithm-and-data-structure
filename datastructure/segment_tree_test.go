@@ -12,5 +12,4 @@ import (
 )
 
 func TestSegmentTree(t *testing.T) {
-
 }

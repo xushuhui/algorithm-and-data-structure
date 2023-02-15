@@ -17,6 +17,7 @@ type node struct {
 func (n *node) String() string {
 	return fmt.Sprint(n.e)
 }
+
 func NewLinkedList() *LinkedList {
 	return &LinkedList{
 		dummyHead: &node{},
@@ -29,30 +30,36 @@ func NewLinkedListNode(e interface{}, next *node) *node {
 		next: next,
 	}
 }
+
 func (l *LinkedList) Add(index int, e interface{}) {
 	if index < 0 || index > l.GetSize() {
 		panic("invalid index")
 	}
 	prev := l.dummyHead
-	//全部往前移动
+	// 全部往前移动
 	for i := 0; i < index; i++ {
 		prev = prev.next
 	}
 	prev.next = NewLinkedListNode(e, prev.next)
 	l.size++
 }
+
 func (l *LinkedList) GetSize() int {
 	return l.size
 }
+
 func (l *LinkedList) IsEmpty() bool {
 	return l.size == 0
 }
+
 func (l *LinkedList) AddFirst(e interface{}) {
 	l.Add(0, e)
 }
+
 func (l *LinkedList) AddLast(e interface{}) {
 	l.Add(l.size, e)
 }
+
 func (l *LinkedList) Remove(index int) interface{} {
 	if index < 0 || index >= l.GetSize() {
 		panic("invalid index")
@@ -67,6 +74,7 @@ func (l *LinkedList) Remove(index int) interface{} {
 	l.size--
 	return retNode.e
 }
+
 func (l *LinkedList) RemoveTest(index int) {
 	if index < 0 || index >= l.GetSize() {
 		panic("invalid index")
@@ -82,12 +90,15 @@ func (l *LinkedList) RemoveTest(index int) {
 	retNode2.next = nil
 	l.size = l.size - 2
 }
+
 func (l *LinkedList) RemoveLast() interface{} {
 	return l.Remove(l.size - 1)
 }
+
 func (l *LinkedList) RemoveFirst() interface{} {
 	return l.Remove(0)
 }
+
 func (l *LinkedList) RemoveElement(e interface{}) {
 	prev := l.dummyHead
 	for prev.next != nil {
@@ -101,6 +112,7 @@ func (l *LinkedList) RemoveElement(e interface{}) {
 		prev = prev.next
 	}
 }
+
 func (l *LinkedList) Get(index int) interface{} {
 	if index < 0 || index >= l.GetSize() {
 		panic("invalid index")
@@ -111,12 +123,15 @@ func (l *LinkedList) Get(index int) interface{} {
 	}
 	return current.e
 }
+
 func (l *LinkedList) GetFirst() interface{} {
 	return l.Get(0)
 }
+
 func (l *LinkedList) GetLast() interface{} {
 	return l.Get(l.size - 1)
 }
+
 func (l *LinkedList) Set(index int, e interface{}) {
 	if index < 0 || index >= l.GetSize() {
 		panic("invalid index")
@@ -127,6 +142,7 @@ func (l *LinkedList) Set(index int, e interface{}) {
 	}
 	current.e = e
 }
+
 func (l *LinkedList) Contains(e interface{}) bool {
 	current := l.dummyHead
 	for current.next != nil {
@@ -137,6 +153,7 @@ func (l *LinkedList) Contains(e interface{}) bool {
 	}
 	return false
 }
+
 func (l *LinkedList) String() string {
 	buffer := bytes.Buffer{}
 	cur := l.dummyHead.next

@@ -10,5 +10,5 @@ package union_find
 import "testing"
 
 func TestUnionFind(t *testing.T) {
-	//t.log()
+	// t.log()
 }

@@ -12,5 +12,4 @@ import (
 )
 
 func TestTrie(t *testing.T) {
-
 }
