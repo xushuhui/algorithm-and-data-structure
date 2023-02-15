@@ -30,6 +30,19 @@ func (a *Array) Add(index int, e int) {
 	a.data[index] = e
 	a.size++
 }
+func (a *Array) AddV2(index int, e int) {
+	if index < 0 || index > a.size {
+		panic("invalid index")
+	}
+	//扩容
+	if a.size == len(a.data) {
+		a.resize(a.size * 2)
+	}
+	a.data[a.size] = a.data[index]
+	a.data[index] = e
+	a.size++
+
+}
 func (a *Array) AddFirst(e int) {
 	a.Add(0, e)
 }
