@@ -1,4 +1,4 @@
-package algorithm
+package leetcode
 
 /*
 第二题：在排序数组中查找数字

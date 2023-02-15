@@ -1,4 +1,4 @@
-package algorithm
+package leetcode
 
 /*
 第一题：寻找缺失的数

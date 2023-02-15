@@ -1,4 +1,4 @@
-package algorithm
+package leetcode
 
 /*
 题目大意：

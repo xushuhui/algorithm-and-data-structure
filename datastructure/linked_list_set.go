@@ -18,7 +18,7 @@ func NewLinkedListSet() *LinkedListSet {
 }
 
 func (l *LinkedListSet) Add(e interface{}) {
-	if l.Contains(e) == false {
+	if !l.Contains(e){
 		l.linkedlist.AddFirst(e)
 	}
 }
