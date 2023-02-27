@@ -1,4 +1,3 @@
-
 package datastructure
 
 import (
@@ -11,19 +10,17 @@ func TestLinkedList(t *testing.T) {
 		l.AddLast(i)
 	}
 	t.Log(l)
-	l.RemoveTest(3)
+	l.Reverse()
 	t.Log(l)
-	// l.AddFirst(1)
-	// l.AddLast(2)
-	// t.Log(l)
-	// l.RemoveFirst()
-	// t.Log(l.GetSize())
-	// val := l.Get(0)
-	// t.Log(val)
-	// l.Set(1,5)
-	// t.Log(l)
-	// l.RemoveElement(2)
-	// t.Log(l)
+
+}
+
+func TestDoubleLinkedList(t *testing.T) {
+	l := NewDoubleLinkedList()
+	for i := 0; i < 5; i++ {
+		l.Add(i, i)
+	}
+	t.Log(l)
 
 }
 
