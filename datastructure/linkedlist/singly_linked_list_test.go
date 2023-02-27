@@ -1,6 +1,7 @@
-package datastructure
+package linkedlist
 
 import (
+	"data-structures/datastructure/maps"
 	"testing"
 )
 
@@ -16,7 +17,7 @@ func TestLinkedList(t *testing.T) {
 }
 
 func TestDoubleLinkedList(t *testing.T) {
-	l := NewDoubleLinkedList()
+	l := NewDoublyLinkedList()
 	for i := 0; i < 5; i++ {
 		l.Add(i, i)
 	}
@@ -25,7 +26,7 @@ func TestDoubleLinkedList(t *testing.T) {
 }
 
 func TestLinkedListMap(t *testing.T) {
-	m := NewLinkedListMap()
+	m := maps.NewLinkedListMap()
 	m.Add("k1", "v1")
 	t.Log(m)
 	m.Add("k2", "v2")

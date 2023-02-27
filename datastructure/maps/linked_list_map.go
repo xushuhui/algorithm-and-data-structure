@@ -1,4 +1,4 @@
-package datastructure
+package maps
 
 import (
 	"bytes"

@@ -1,5 +1,7 @@
 package datastructure
 
+import linkedlist "data-structures/datastructure/linkedlist"
+
 type Set interface {
 	Add(e interface{})
 	Contains(e interface{}) bool
@@ -8,17 +10,17 @@ type Set interface {
 	IsEmpty() bool
 }
 type LinkedListSet struct {
-	linkedlist *LinkedList
+	linkedlist *linkedlist.LinkedList
 }
 
 func NewLinkedListSet() *LinkedListSet {
 	return &LinkedListSet{
-		linkedlist: NewLinkedList(),
+		linkedlist: linkedlist.NewLinkedList(),
 	}
 }
 
 func (l *LinkedListSet) Add(e interface{}) {
-	if !l.Contains(e){
+	if !l.Contains(e) {
 		l.linkedlist.AddFirst(e)
 	}
 }

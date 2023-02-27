@@ -1,4 +1,4 @@
-package datastructure
+package linkedlist
 
 import (
 	"bytes"
@@ -166,7 +166,6 @@ func (l *LinkedList) Reverse() {
 		cur = cur.next
 		i++
 		l.Remove(i)
-		fmt.Println(l)
 	}
 
 }

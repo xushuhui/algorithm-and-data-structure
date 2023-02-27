@@ -1,4 +1,6 @@
-package datastructure
+package queue
+
+import linkedlist2 "data-structures/datastructure/linkedlist"
 
 type Queue interface {
 	IsEmpty() bool
@@ -8,12 +10,12 @@ type Queue interface {
 	Front() interface{}
 }
 type LinkedListQueue struct {
-	linkedlist *LinkedList
+	linkedlist *linkedlist2.LinkedList
 }
 
 func NewLinkedListQueue() *LinkedListQueue {
 	return &LinkedListQueue{
-		linkedlist: NewLinkedList(),
+		linkedlist: linkedlist2.NewLinkedList(),
 	}
 }
 

@@ -1,12 +1,16 @@
-package datastructure
+package queue
+
+import (
+	"data-structures/datastructure/array"
+)
 
 type ArrayQueue struct {
-	array *Array
+	array *array.Array
 }
 
 func NewArrayQueue() *ArrayQueue {
 	return &ArrayQueue{
-		array: NewArray(10),
+		array: array.NewArray(10),
 	}
 }
 

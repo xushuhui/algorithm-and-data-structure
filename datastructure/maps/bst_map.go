@@ -1,12 +1,14 @@
-package datastructure
+package maps
+
+import "data-structures/datastructure"
 
 type BSTMap struct {
-	BST *BST
+	BST *datastructure.BST
 }
 
 func NewBSTMap() *BSTMap {
 	return &BSTMap{
-		BST: NewBST(),
+		BST: datastructure.NewBST(),
 	}
 }
 

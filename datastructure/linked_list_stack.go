@@ -1,5 +1,7 @@
 package datastructure
 
+import linkedlist2 "data-structures/datastructure/linkedlist"
+
 type Stack interface {
 	Push(e interface{})
 	Pop() interface{}
@@ -8,12 +10,12 @@ type Stack interface {
 	Peek() interface{}
 }
 type LinkedListStack struct {
-	linkedlist *LinkedList
+	linkedlist *linkedlist2.LinkedList
 }
 
 func NewLinkedListStack() *LinkedListStack {
 	return &LinkedListStack{
-		linkedlist: NewLinkedList(),
+		linkedlist: linkedlist2.NewLinkedList(),
 	}
 }
 
@@ -37,6 +39,6 @@ func (l *LinkedListStack) GetSize() int {
 	return l.linkedlist.GetSize()
 }
 
-func (l *LinkedListStack) Print() *LinkedList {
+func (l *LinkedListStack) Print() *linkedlist2.LinkedList {
 	return l.linkedlist
 }
