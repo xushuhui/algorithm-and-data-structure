@@ -15,16 +15,80 @@ func (n *node) String() string {
 	return fmt.Sprint(n.element)
 }
 
-type linkedList struct {
-	Size      int
+type LinkedList struct {
+	size      int
 	dummyHead *node
 }
 
-func NewLinkedList() *linkedList {
-	return &linkedList{
+func (l *LinkedList) AddFirst(element interface{}) {
+	l.Add(0, element)
+}
+
+func (l *LinkedList) AddLast(element interface{}) {
+	l.Add(l.size, element)
+}
+
+func (l *LinkedList) RemoveLast() interface{} {
+	return l.Remove(l.size - 1)
+}
+
+func (l *LinkedList) RemoveFirst() interface{} {
+	return l.Remove(0)
+}
+
+func (l *LinkedList) GetFirst() interface{} {
+	return l.Get(0)
+}
+
+func (l *LinkedList) GetLast() interface{} {
+	return l.Get(l.size - 1)
+}
+
+func (l *LinkedList) IsEmpty() bool {
+	return l.size == 0
+}
+
+func (l *LinkedList) GetSize() int {
+	return l.size
+}
+
+func (l *LinkedList) RemoveElement(element interface{}) {
+	panic("implement me")
+}
+
+func (l *LinkedList) Get(index int) (element interface{}) {
+	if index < 0 || index > l.size {
+		panic("invalid index")
+	}
+	prev := l.dummyHead.next
+	for i := 0; i < index; i++ {
+		prev = prev.next
+	}
+	return prev.element
+
+}
+
+func (l *LinkedList) Set(index int, element interface{}) {
+	panic("implement me")
+}
+
+func (l *LinkedList) Contains(element interface{}) bool {
+	current := l.dummyHead.next
+	for current != nil {
+		if current.element == element {
+			return true
+		}
+		current = current.next
+	}
+	return false
+}
+
+func NewLinkedList() *LinkedList {
+	return &LinkedList{
 		dummyHead: &node{},
 	}
 }
+
 func NewNode(element interface{}, perv, next *node) *node {
 	return &node{
 		element: element,
@@ -32,20 +96,22 @@ func NewNode(element interface{}, perv, next *node) *node {
 		next:    next,
 	}
 }
-func (d *linkedList) Add(index int, element interface{}) {
-	if index < 0 || index > d.Size {
+
+func (l *LinkedList) Add(index int, element interface{}) {
+	if index < 0 || index > l.size {
 		panic("invalid index")
 	}
-	prev := d.dummyHead
+	prev := l.dummyHead
 	for i := 0; i < index; i++ {
 		prev = prev.next
 	}
 	prev.next = NewNode(element, prev.prev, prev.next)
-	d.Size++
+	l.size++
 }
-func (d *linkedList) String() string {
+
+func (l *LinkedList) String() string {
 	buf := bytes.Buffer{}
-	cur := d.dummyHead.next
+	cur := l.dummyHead.next
 	buf.WriteString("NULL")
 	for cur != nil {
 		buf.WriteString("<-" + fmt.Sprint(cur.element) + "->")
@@ -54,11 +120,12 @@ func (d *linkedList) String() string {
 	buf.WriteString("NULL")
 	return buf.String()
 }
-func (d *linkedList) Remove(index int) interface{} {
-	if index < 0 || index > d.Size {
+
+func (l *LinkedList) Remove(index int) interface{} {
+	if index < 0 || index > l.size {
 		panic("invalid index")
 	}
-	current := d.dummyHead
+	current := l.dummyHead.next
 	for i := 0; i < index; i++ {
 		current = current.next
 	}
@@ -66,12 +133,6 @@ func (d *linkedList) Remove(index int) interface{} {
 	current.next = retNode.next
 	retNode.next = nil
 	retNode.prev = nil
-	d.Size--
+	l.size--
 	return retNode.element
-}
-func (d *linkedList) Contains() {
-
-}
-func (d *linkedList) RemoveElement() {
-
 }

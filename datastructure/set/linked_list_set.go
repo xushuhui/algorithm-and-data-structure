@@ -1,4 +1,4 @@
-package datastructure
+package set
 
 import (
 	linkedlist "data-structures/datastructure/linkedlist/singlyLinkedList"

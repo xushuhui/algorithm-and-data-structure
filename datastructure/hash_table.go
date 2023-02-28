@@ -6,7 +6,7 @@ type HashTable struct {
 	M         int
 }
 
-func NewHasTable() *HashTable {
+func NewHashTable() *HashTable {
 	return &HashTable{}
 }
 

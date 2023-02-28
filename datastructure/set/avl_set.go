@@ -1,12 +1,16 @@
-package datastructure
+package set
+
+import (
+	"data-structures/datastructure/avl_tree"
+)
 
 type AvlSet struct {
-	Avl *Avl
+	Avl *avl_tree.Avl
 }
 
 func NewAvlSet() *AvlSet {
 	return &AvlSet{
-		Avl: NewAvl(),
+		Avl: avl_tree.NewAvl(),
 	}
 }
 

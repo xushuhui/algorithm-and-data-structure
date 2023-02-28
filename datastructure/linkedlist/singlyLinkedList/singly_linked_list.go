@@ -61,21 +61,6 @@ func (l *LinkedList) AddLast(e interface{}) {
 	l.Add(l.size, e)
 }
 
-func (l *LinkedList) Remove(index int) interface{} {
-	if index < 0 || index >= l.GetSize() {
-		panic("invalid index")
-	}
-	prev := l.dummyHead
-	for i := 0; i < index; i++ {
-		prev = prev.next
-	}
-	retNode := prev.next
-	prev.next = retNode.next
-	retNode.next = nil
-	l.size--
-	return retNode.element
-}
-
 func (l *LinkedList) RemoveLast() interface{} {
 	return l.Remove(l.size - 1)
 }
@@ -84,11 +69,26 @@ func (l *LinkedList) RemoveFirst() interface{} {
 	return l.Remove(0)
 }
 
+func (l *LinkedList) Remove(index int) interface{} {
+	if index < 0 || index >= l.GetSize() {
+		panic("invalid index")
+	}
+	prev := l.dummyHead.next
+	for i := 0; i < index; i++ {
+		prev = prev.next
+	}
+	retNode := prev
+	prev.next = retNode.next
+	retNode.next = nil
+	l.size--
+	return retNode.element
+}
+
 func (l *LinkedList) RemoveElement(element interface{}) {
-	prev := l.dummyHead
-	for prev.next != nil {
-		if prev.next.element == element {
-			delNode := prev.next
+	prev := l.dummyHead.next
+	for prev != nil {
+		if prev.element == element {
+			delNode := prev
 			prev.next = delNode.next
 			delNode.next = nil
 			l.size--
@@ -138,6 +138,7 @@ func (l *LinkedList) Contains(element interface{}) bool {
 	}
 	return false
 }
+
 func (l *LinkedList) Clear() {
 	current := l.dummyHead.next
 	for current != nil {
@@ -146,6 +147,7 @@ func (l *LinkedList) Clear() {
 	}
 	l.size = 0
 }
+
 func (l *LinkedList) String() string {
 	buffer := bytes.Buffer{}
 	cur := l.dummyHead.next
@@ -158,8 +160,8 @@ func (l *LinkedList) String() string {
 
 	return buffer.String()
 }
-func (l *LinkedList) Reverse() {
 
+func (l *LinkedList) Reverse() {
 	cur := l.dummyHead.next
 	var i int
 	for cur != nil {
@@ -168,7 +170,6 @@ func (l *LinkedList) Reverse() {
 		i++
 		l.Remove(i)
 	}
-
 }
 
 func (l *LinkedList) RemoveDouble(index int) {

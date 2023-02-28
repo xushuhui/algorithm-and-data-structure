@@ -1,4 +1,4 @@
-package datastructure
+package stack
 
 import array2 "data-structures/datastructure/array"
 

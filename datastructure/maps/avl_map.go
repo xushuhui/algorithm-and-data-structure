@@ -1,12 +1,16 @@
-package datastructure
+package maps
+
+import (
+	"data-structures/datastructure/avl_tree"
+)
 
 type AvlMap struct {
-	Avl *Avl
+	Avl *avl_tree.Avl
 }
 
 func NewAvlMap() *AvlMap {
 	return &AvlMap{
-		Avl: NewAvl(),
+		Avl: avl_tree.NewAvl(),
 	}
 }
 

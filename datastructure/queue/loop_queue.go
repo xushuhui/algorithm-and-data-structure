@@ -1,4 +1,4 @@
-package datastructure
+package queue
 
 type LoopQueue struct {
 	data  []int

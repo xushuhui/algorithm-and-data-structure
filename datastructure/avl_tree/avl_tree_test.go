@@ -1,4 +1,4 @@
-package datastructure
+package avl_tree
 
 import (
 	"testing"

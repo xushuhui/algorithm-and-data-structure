@@ -1,4 +1,4 @@
-package singlyLinkedList
+package doublyLinkedList
 
 import (
 	"testing"
@@ -26,15 +26,7 @@ func TestLinkedList_AddLast(t *testing.T) {
 	l.AddLast("1")
 
 	is.Equal(l.GetLast(), "1")
-}
 
-func TestLinkedList_Clear(t *testing.T) {
-	is := tis.New(t)
-	l := NewLinkedList()
-	l.AddLast("1")
-	l.Clear()
-	is.Equal(l.size, 0)
-	is.Equal(l.dummyHead.next.element, nil)
 }
 
 func TestLinkedList_Contains(t *testing.T) {

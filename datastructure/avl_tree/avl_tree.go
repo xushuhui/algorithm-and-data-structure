@@ -1,4 +1,4 @@
-package datastructure
+package avl_tree
 
 // 对节点y进行向右旋转操作，返回旋转后新的根节点x
 //        y                              x

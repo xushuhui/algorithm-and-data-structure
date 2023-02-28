@@ -1,4 +1,3 @@
-
 package datastructure
 
 // const RED bool = true
