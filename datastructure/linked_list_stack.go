@@ -1,6 +1,8 @@
 package datastructure
 
-import linkedlist2 "data-structures/datastructure/linkedlist"
+import (
+	linkedlist2 "data-structures/datastructure/linkedlist/singlyLinkedList"
+)
 
 type Stack interface {
 	Push(e interface{})

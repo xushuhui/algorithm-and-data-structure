@@ -1,32 +1,32 @@
-package linkedlist
+package singlyLinkedList
 
 import (
 	"bytes"
 	"fmt"
 )
 
-type linkedlistnode struct {
+type node struct {
 	element interface{}
-	next    *linkedlistnode
+	next    *node
 }
 
-func (n *linkedlistnode) String() string {
+func (n *node) String() string {
 	return fmt.Sprint(n.element)
 }
 
 type LinkedList struct {
-	dummyHead *linkedlistnode
+	dummyHead *node
 	size      int
 }
 
 func NewLinkedList() *LinkedList {
 	return &LinkedList{
-		dummyHead: &linkedlistnode{},
+		dummyHead: &node{},
 	}
 }
 
-func NewLinkedListNode(element interface{}, next *linkedlistnode) *linkedlistnode {
-	return &linkedlistnode{
+func NewNode(element interface{}, next *node) *node {
+	return &node{
 		element: element,
 		next:    next,
 	}
@@ -41,7 +41,7 @@ func (l *LinkedList) Add(index int, e interface{}) {
 	for i := 0; i < index; i++ {
 		prev = prev.next
 	}
-	prev.next = NewLinkedListNode(e, prev.next)
+	prev.next = NewNode(e, prev.next)
 	l.size++
 }
 
@@ -141,9 +141,10 @@ func (l *LinkedList) Contains(element interface{}) bool {
 func (l *LinkedList) Clear() {
 	current := l.dummyHead.next
 	for current != nil {
-		current = nil
+		current.element = nil
 		current = current.next
 	}
+	l.size = 0
 }
 func (l *LinkedList) String() string {
 	buffer := bytes.Buffer{}

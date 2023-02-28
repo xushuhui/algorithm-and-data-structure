@@ -1,6 +1,8 @@
 package queue
 
-import linkedlist2 "data-structures/datastructure/linkedlist"
+import (
+	linkedlist2 "data-structures/datastructure/linkedlist/singlyLinkedList"
+)
 
 type Queue interface {
 	IsEmpty() bool

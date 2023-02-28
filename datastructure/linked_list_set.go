@@ -1,6 +1,8 @@
 package datastructure
 
-import linkedlist "data-structures/datastructure/linkedlist"
+import (
+	linkedlist "data-structures/datastructure/linkedlist/singlyLinkedList"
+)
 
 type Set interface {
 	Add(e interface{})
