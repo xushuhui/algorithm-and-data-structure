@@ -1,4 +1,4 @@
-package datastructure
+package red_black_tree
 
 // const RED bool = true
 // const BLACK bool = false

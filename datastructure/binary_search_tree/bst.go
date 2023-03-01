@@ -1,4 +1,4 @@
-package datastructure
+package binary_search_tree
 
 type BST struct {
 	Size int

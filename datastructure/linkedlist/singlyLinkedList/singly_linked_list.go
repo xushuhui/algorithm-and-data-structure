@@ -2,6 +2,7 @@ package singlyLinkedList
 
 import (
 	"bytes"
+	"errors"
 	"fmt"
 )
 
@@ -32,9 +33,9 @@ func NewNode(element interface{}, next *node) *node {
 	}
 }
 
-func (l *LinkedList) Add(index int, e interface{}) {
+func (l *LinkedList) Add(index int, e interface{}) (err error) {
 	if index < 0 || index > l.GetSize() {
-		panic("invalid index")
+		return errors.New("invalid index")
 	}
 	prev := l.dummyHead
 	// 全部往前移动
@@ -43,6 +44,7 @@ func (l *LinkedList) Add(index int, e interface{}) {
 	}
 	prev.next = NewNode(e, prev.next)
 	l.size++
+	return
 }
 
 func (l *LinkedList) GetSize() int {
@@ -53,25 +55,26 @@ func (l *LinkedList) IsEmpty() bool {
 	return l.size == 0
 }
 
-func (l *LinkedList) AddFirst(e interface{}) {
-	l.Add(0, e)
+func (l *LinkedList) AddFirst(e interface{}) (err error) {
+	return l.Add(0, e)
 }
 
-func (l *LinkedList) AddLast(e interface{}) {
-	l.Add(l.size, e)
+func (l *LinkedList) AddLast(e interface{}) (err error) {
+	return l.Add(l.size, e)
 }
 
-func (l *LinkedList) RemoveLast() interface{} {
+func (l *LinkedList) RemoveLast() (interface{}, error) {
 	return l.Remove(l.size - 1)
 }
 
-func (l *LinkedList) RemoveFirst() interface{} {
+func (l *LinkedList) RemoveFirst() (interface{}, error) {
 	return l.Remove(0)
 }
 
-func (l *LinkedList) Remove(index int) interface{} {
+func (l *LinkedList) Remove(index int) (interface{}, error) {
 	if index < 0 || index >= l.GetSize() {
-		panic("invalid index")
+
+		return nil, errors.New("invalid index")
 	}
 	prev := l.dummyHead.next
 	for i := 0; i < index; i++ {
@@ -81,10 +84,10 @@ func (l *LinkedList) Remove(index int) interface{} {
 	prev.next = retNode.next
 	retNode.next = nil
 	l.size--
-	return retNode.element
+	return retNode.element, nil
 }
 
-func (l *LinkedList) RemoveElement(element interface{}) {
+func (l *LinkedList) RemoveElement(element interface{}) (err error) {
 	prev := l.dummyHead.next
 	for prev != nil {
 		if prev.element == element {
@@ -96,36 +99,38 @@ func (l *LinkedList) RemoveElement(element interface{}) {
 		}
 		prev = prev.next
 	}
+	return
 }
 
-func (l *LinkedList) Get(index int) interface{} {
+func (l *LinkedList) Get(index int) (interface{}, error) {
 	if index < 0 || index >= l.GetSize() {
-		panic("invalid index")
+		return nil, errors.New("invalid index")
 	}
 	current := l.dummyHead.next
 	for i := 0; i < index; i++ {
 		current = current.next
 	}
-	return current.element
+	return current.element, nil
 }
 
-func (l *LinkedList) GetFirst() interface{} {
+func (l *LinkedList) GetFirst() (interface{}, error) {
 	return l.Get(0)
 }
 
-func (l *LinkedList) GetLast() interface{} {
+func (l *LinkedList) GetLast() (interface{}, error) {
 	return l.Get(l.size - 1)
 }
 
-func (l *LinkedList) Set(index int, element interface{}) {
+func (l *LinkedList) Set(index int, element interface{}) error {
 	if index < 0 || index >= l.GetSize() {
-		panic("invalid index")
+		return errors.New("invalid index")
 	}
 	current := l.dummyHead.next
 	for i := 0; i < index; i++ {
 		current = current.next
 	}
 	current.element = element
+	return nil
 }
 
 func (l *LinkedList) Contains(element interface{}) bool {
@@ -162,14 +167,7 @@ func (l *LinkedList) String() string {
 }
 
 func (l *LinkedList) Reverse() {
-	cur := l.dummyHead.next
-	var i int
-	for cur != nil {
-		l.AddFirst(cur.element)
-		cur = cur.next
-		i++
-		l.Remove(i)
-	}
+
 }
 
 func (l *LinkedList) RemoveDouble(index int) {

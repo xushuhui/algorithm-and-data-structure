@@ -1,12 +1,14 @@
-package datastructure
+package set
+
+import "data-structures/datastructure/binary_search_tree"
 
 type BSTSet struct {
-	bst *BST
+	bst *binary_search_tree.BST
 }
 
 func NewBSTSet() *BSTSet {
 	return &BSTSet{
-		bst: NewBST(),
+		bst: binary_search_tree.NewBST(),
 	}
 }
 

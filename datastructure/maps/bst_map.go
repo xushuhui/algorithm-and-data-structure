@@ -1,14 +1,16 @@
 package maps
 
-import "data-structures/datastructure"
+import (
+	"data-structures/datastructure/binary_search_tree"
+)
 
 type BSTMap struct {
-	BST *datastructure.BST
+	BST *binary_search_tree.BST
 }
 
 func NewBSTMap() *BSTMap {
 	return &BSTMap{
-		BST: datastructure.NewBST(),
+		BST: binary_search_tree.NewBST(),
 	}
 }
 

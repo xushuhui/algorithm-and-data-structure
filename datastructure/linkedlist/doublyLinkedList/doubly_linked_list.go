@@ -2,6 +2,7 @@ package doublyLinkedList
 
 import (
 	"bytes"
+	"errors"
 	"fmt"
 )
 
@@ -20,27 +21,27 @@ type LinkedList struct {
 	dummyHead *node
 }
 
-func (l *LinkedList) AddFirst(element interface{}) {
-	l.Add(0, element)
+func (l *LinkedList) AddFirst(element interface{}) (err error) {
+	return l.Add(0, element)
 }
 
-func (l *LinkedList) AddLast(element interface{}) {
-	l.Add(l.size, element)
+func (l *LinkedList) AddLast(element interface{}) (err error) {
+	return l.Add(l.size, element)
 }
 
-func (l *LinkedList) RemoveLast() interface{} {
+func (l *LinkedList) RemoveLast() (interface{}, error) {
 	return l.Remove(l.size - 1)
 }
 
-func (l *LinkedList) RemoveFirst() interface{} {
+func (l *LinkedList) RemoveFirst() (interface{}, error) {
 	return l.Remove(0)
 }
 
-func (l *LinkedList) GetFirst() interface{} {
+func (l *LinkedList) GetFirst() (interface{}, error) {
 	return l.Get(0)
 }
 
-func (l *LinkedList) GetLast() interface{} {
+func (l *LinkedList) GetLast() (interface{}, error) {
 	return l.Get(l.size - 1)
 }
 
@@ -52,23 +53,23 @@ func (l *LinkedList) GetSize() int {
 	return l.size
 }
 
-func (l *LinkedList) RemoveElement(element interface{}) {
+func (l *LinkedList) RemoveElement(element interface{}) error {
 	panic("implement me")
 }
 
-func (l *LinkedList) Get(index int) (element interface{}) {
+func (l *LinkedList) Get(index int) (element interface{}, err error) {
 	if index < 0 || index > l.size {
-		panic("invalid index")
+		return nil, errors.New("invalid index")
 	}
 	prev := l.dummyHead.next
 	for i := 0; i < index; i++ {
 		prev = prev.next
 	}
-	return prev.element
+	return prev.element, nil
 
 }
 
-func (l *LinkedList) Set(index int, element interface{}) {
+func (l *LinkedList) Set(index int, element interface{}) error {
 	panic("implement me")
 }
 
@@ -97,9 +98,9 @@ func NewNode(element interface{}, perv, next *node) *node {
 	}
 }
 
-func (l *LinkedList) Add(index int, element interface{}) {
+func (l *LinkedList) Add(index int, element interface{}) (err error) {
 	if index < 0 || index > l.size {
-		panic("invalid index")
+		return errors.New("invalid index")
 	}
 	prev := l.dummyHead
 	for i := 0; i < index; i++ {
@@ -107,6 +108,7 @@ func (l *LinkedList) Add(index int, element interface{}) {
 	}
 	prev.next = NewNode(element, prev.prev, prev.next)
 	l.size++
+	return
 }
 
 func (l *LinkedList) String() string {
@@ -121,9 +123,9 @@ func (l *LinkedList) String() string {
 	return buf.String()
 }
 
-func (l *LinkedList) Remove(index int) interface{} {
+func (l *LinkedList) Remove(index int) (interface{}, error) {
 	if index < 0 || index > l.size {
-		panic("invalid index")
+		return nil, errors.New("invalid index")
 	}
 	current := l.dummyHead.next
 	for i := 0; i < index; i++ {
@@ -134,5 +136,5 @@ func (l *LinkedList) Remove(index int) interface{} {
 	retNode.next = nil
 	retNode.prev = nil
 	l.size--
-	return retNode.element
+	return retNode.element, nil
 }

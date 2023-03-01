@@ -1,4 +1,4 @@
-package datastructure
+package red_black_tree
 
 import "testing"
 
