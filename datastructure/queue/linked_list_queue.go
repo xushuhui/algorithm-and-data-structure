@@ -25,11 +25,11 @@ func (l *LinkedListQueue) EnQueue(e interface{}) {
 	l.linkedlist.AddLast(e)
 }
 
-func (l *LinkedListQueue) DeQueue() interface{} {
+func (l *LinkedListQueue) DeQueue() (interface{},error) {
 	return l.linkedlist.RemoveFirst()
 }
 
-func (l *LinkedListQueue) Front() interface{} {
+func (l *LinkedListQueue) Front() (interface{},error) {
 	return l.linkedlist.GetFirst()
 }
 

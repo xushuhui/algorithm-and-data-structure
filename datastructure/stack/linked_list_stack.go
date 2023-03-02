@@ -25,11 +25,11 @@ func (l *LinkedListStack) Push(e interface{}) {
 	l.linkedlist.AddFirst(e)
 }
 
-func (l *LinkedListStack) Pop() interface{} {
+func (l *LinkedListStack) Pop() (interface{},error) {
 	return l.linkedlist.RemoveFirst()
 }
 
-func (l *LinkedListStack) Peek() interface{} {
+func (l *LinkedListStack) Peek() (interface{},error) {
 	return l.linkedlist.GetFirst()
 }
 

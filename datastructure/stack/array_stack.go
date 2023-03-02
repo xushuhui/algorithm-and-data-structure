@@ -1,14 +1,14 @@
 package stack
 
-import array2 "data-structures/datastructure/array"
+import s "data-structures/datastructure/array"
 
 type ArrayStack struct {
-	array *array2.Array
+	array *s.Array
 }
 
 func NewArrayStack() *ArrayStack {
 	return &ArrayStack{
-		array: array2.NewArray(10),
+		array: s.NewArray(10),
 	}
 }
 
